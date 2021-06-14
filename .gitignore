@@ -1,3 +1,6 @@
+#Cring ds_store files
+.DS_Store
+
 #VSCode specific files/folders
 .vscode/
 
