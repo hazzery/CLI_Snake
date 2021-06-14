@@ -11,3 +11,8 @@ Board<X, Y>::Board()
         }
     }
 }
+
+char* Board::getPixels()
+{
+    return pixelArray;
+}
