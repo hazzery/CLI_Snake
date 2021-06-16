@@ -1,10 +1,39 @@
 #include "../include/Snake.h"
+#include "../include/Direction.h"
+#include "../include/Axis.h"
 
 Snake::Snake()
-:headSymbol('^'), headCoords(Coords(7, 4)) {}
+:headSymbol('^'), headCoords(Coords(7, 4)), oldHeadCoords(Coords(0, 0)) {}
 
-Coords Snake::getHeadCoords() const
+void Snake::move(Direction dir)
+{
+    oldHeadCoords = headCoords;
+    
+    switch(dir)
+    {
+        case Up:
+            headCoords.decrement(Axis::y);
+            break;
+            
+        case Down:
+            headCoords.increment(Axis::y);
+            break;
+            
+        case Left:
+            headCoords.decrement(Axis::x);
+            break;
+            
+        case Right:
+            headCoords.increment(Axis::x);
+            break;
+    }
+}
+
+Coords Snake::HeadCoords() const
 { return headCoords; }
 
-char Snake::getHeadSymbol() const
+Coords Snake::OldHeadCoords() const
+{ return oldHeadCoords; }
+
+char Snake::HeadSymbol() const
 { return headSymbol; }
