@@ -27,3 +27,9 @@ void Board<X, Y>::print()
         cout << endl;
     }
 }
+
+template <int X, int Y>
+void Board<X, Y>::set(Coords pos, unsigned char symbol)
+{
+    pixelArray[pos.get(Axis::x)][pos.get(Axis::y)] = symbol;
+}

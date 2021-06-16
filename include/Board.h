@@ -8,8 +8,10 @@ class Board
 
         void print();
 
-        static constexpr int width = X;
-        static constexpr int height = Y;
+        static int constexpr width = X;
+        static int constexpr height = Y;
+
+        void set(Coords pos, unsigned char symbol);
 
     private:
         char pixelArray[X][Y];
