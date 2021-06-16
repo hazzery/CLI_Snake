@@ -1,4 +1,5 @@
 #pragma once
+#include "axis.h"
 
 class Coords
 {
@@ -8,6 +9,8 @@ class Coords
   public:
     Coords(int x, int y);
 
-    int getX() const;
-    int getY() const;
+    int get(Axis ax) const;
+
+    void increment(Axis ax);
+    void decrement(Axis ax);
 };
