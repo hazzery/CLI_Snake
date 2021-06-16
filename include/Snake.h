@@ -11,10 +11,10 @@ public:
     void move(Direction dir);
     Coords HeadCoords() const;
     Coords OldHeadCoords() const;
-    char HeadSymbol() const;
+    unsigned char HeadSymbol() const;
 
 private:
-    char headSymbol;
+    unsigned char headSymbol;
     Coords headCoords;
     Coords oldHeadCoords;
 };

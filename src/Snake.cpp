@@ -35,5 +35,5 @@ Coords Snake::HeadCoords() const
 Coords Snake::OldHeadCoords() const
 { return oldHeadCoords; }
 
-char Snake::HeadSymbol() const
+unsigned char Snake::HeadSymbol() const
 { return headSymbol; }
