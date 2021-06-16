@@ -1,4 +1,7 @@
 #include "../include/Board.h"
+#include <iostream>
+using std::cout;
+using std::endl;
 
 template <int X, int Y>
 Board<X, Y>::Board()
@@ -12,7 +15,15 @@ Board<X, Y>::Board()
     }
 }
 
-char* Board::getPixels()
+template <int X, int Y>
+void Board<X, Y>::print()
 {
-    return pixelArray;
+    for (int y = 0; y < Y; y++)
+    {
+        for (int x = 0; x < X; x++)
+        {
+            cout << pixelArray[x][y];
+        }
+        cout << endl;
+    }
 }

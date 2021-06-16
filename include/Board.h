@@ -6,7 +6,7 @@ class Board
     public:
         Board();
 
-        char* getPixels();
+        void print();
 
     private:
         char pixelArray[X][Y];
