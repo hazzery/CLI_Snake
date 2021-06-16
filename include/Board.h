@@ -8,6 +8,9 @@ class Board
 
         void print();
 
+        static constexpr int width = X;
+        static constexpr int height = Y;
+
     private:
         char pixelArray[X][Y];
 };
