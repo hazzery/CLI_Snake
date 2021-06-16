@@ -1,10 +1,28 @@
 #include "../include/Coords.h"
 
 Coords::Coords(int x, int y)
-  :xOrdinate(x), yOrdinate(y){}
+	:xOrdinate(x), yOrdinate(y){}
     
-int Coords::getX() const
-{ return xOrdinate; }
+int Coords::get(Axis ax) const
+{
+    if(ax == Axis::x)
+        return xOrdinate;
+    else
+        return yOrdinate;
+}
 
-int Coords::getY() const
-{ return yOrdinate; }
+void Coords::increment(Axis ax)
+{
+    if(ax == Axis::x)
+        xOrdinate++;
+    else
+        yOrdinate++;
+}
+
+void Coords::decrement(Axis ax)
+{
+    if(ax == Axis::x)
+        xOrdinate--;
+    else
+        yOrdinate--;
+}
