@@ -1,4 +1,4 @@
-#Cring ds_store files
+#Cringe ds_store files
 .DS_Store
 
 #VSCode specific files/folders
@@ -48,6 +48,9 @@
 *.user
 *.userosscache
 *.sln.docstates
+*.sln
+*.vcxproj
+*.vcxproj.filters
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
