@@ -1,3 +1,4 @@
+#include "../include/Coords.h"
 #include "../include/Board.h"
 #include <iostream>
 using std::cout;

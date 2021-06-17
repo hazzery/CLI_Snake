@@ -35,5 +35,11 @@ Coords Snake::HeadCoords() const
 Coords Snake::OldHeadCoords() const
 { return oldHeadCoords; }
 
-unsigned char Snake::HeadSymbol() const
+int Snake::HeadCoord(Axis ax) const
+{ return headCoords.get(ax); }
+
+int Snake::OldHeadCoord(Axis ax) const
+{ return oldHeadCoords.get(ax); }
+
+char Snake::HeadSymbol() const
 { return headSymbol; }
