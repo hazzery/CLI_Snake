@@ -7,6 +7,7 @@ class Snake
 {
 public:
     Snake();
+    Snake(int x, int y);
 
     void move(Direction dir);
     
