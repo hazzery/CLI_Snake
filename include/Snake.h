@@ -21,7 +21,7 @@ public:
 
 
 private:
-    char headSymbol;
+    unsigned char headSymbol;
     Coords headCoords;
     Coords oldHeadCoords;
 };
