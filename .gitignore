@@ -51,6 +51,7 @@
 *.sln
 *.vcxproj
 *.vcxproj.filters
+CppProperties.json
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
