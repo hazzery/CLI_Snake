@@ -1,8 +1,8 @@
 #pragma once
-enum Direction
+enum Direction : int
 {
-    Up,
-    Down,
-    Left,
-    Right
+    Up = 119,   //'w' in ASCII is 119
+    Down = 115, //'s'
+    Left = 97,  //'a'
+    Right = 100 //'d'
 };
