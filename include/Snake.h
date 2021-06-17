@@ -9,9 +9,15 @@ public:
     Snake();
 
     void move(Direction dir);
+    
     Coords HeadCoords() const;
+    int HeadCoord(Axis ax) const;
+
     Coords OldHeadCoords() const;
+    int OldHeadCoord(Axis ax) const;
+    
     char HeadSymbol() const;
+
 
 private:
     char headSymbol;
