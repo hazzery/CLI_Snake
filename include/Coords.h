@@ -7,6 +7,7 @@ class Coords
     int xOrdinate, yOrdinate;
     
   public:
+    Coords();
     Coords(int x, int y);
 
     int get(Axis ax) const;

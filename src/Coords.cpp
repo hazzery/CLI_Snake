@@ -1,7 +1,10 @@
 #include "../include/Coords.h"
 
+Coords::Coords()
+	:xOrdinate(-1), yOrdinate(-1) {}
+
 Coords::Coords(int x, int y)
-	:xOrdinate(x), yOrdinate(y){}
+	:xOrdinate(x), yOrdinate(y) {}
     
 int Coords::get(Axis ax) const
 {
