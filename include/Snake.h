@@ -10,7 +10,7 @@ public:
     Snake();
     Snake(int x, int y);
 
-    void move(Direction dir);
+    void move(Direction dir, Direction oldDir);
     
     Coords HeadCoords() const;
     int HeadCoord(Axis ax) const;

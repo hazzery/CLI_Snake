@@ -16,6 +16,7 @@ int main()
     Snake snake(14, 8);
     
     Direction dir = None;
+    Direction oldDir = None;
 
     int loops = 0;
     while (loops < 15)
@@ -26,7 +27,8 @@ int main()
         char keyboardInput;
         cin >> keyboardInput;
         dir = (Direction)keyboardInput;
-        snake.move(dir);
+        snake.move(dir, oldDir);
+        oldDir = dir;
         
         board.set(snake.OldHeadCoords(), snake.BodySymbol());
 

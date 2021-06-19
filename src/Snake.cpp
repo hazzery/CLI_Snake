@@ -15,7 +15,7 @@ Snake::Snake(int x, int y)
     : headCoords(Coords(((x+1)/2)-1, ((y + 1) / 2) - 1)), oldHeadCoords(Coords()), headSymbol(Symbol::LookUp), bodySymbol(Symbol::Vertical) 
 { cout << "constructed snake at pos (" << ((x + 1) / 2) - 1 << ", " << ((y + 1) / 2) - 1 << ")" << endl; }
 
-void Snake::move(Direction dir)
+void Snake::move(Direction dir, Direction oldDir)
 {
     oldHeadCoords = headCoords;
     
