@@ -29,3 +29,9 @@ void Coords::decrement(Axis ax)
     else
         yOrdinate--;
 }
+
+ostream& operator<<(ostream& os, const Coords& pos)
+{
+    os << "(" << pos.xOrdinate << ", " << pos.yOrdinate << ")";
+    return os;
+}

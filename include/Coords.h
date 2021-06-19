@@ -1,5 +1,7 @@
 #pragma once
 #include "axis.h"
+#include <iostream>
+using std::ostream;
 
 class Coords
 {
@@ -14,4 +16,6 @@ class Coords
 
     void increment(Axis ax);
     void decrement(Axis ax);
+    
+    friend ostream& operator<<(ostream& os, const Coords& pos);
 };
