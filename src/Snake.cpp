@@ -15,6 +15,30 @@ Snake::Snake(int x, int y)
     : headCoords(Coords(((x+1)/2)-1, ((y + 1) / 2) - 1)), oldHeadCoords(Coords()), headSymbol(Symbol::LookUp), bodySymbol(Symbol::Vertical) 
 { cout << "constructed snake at pos (" << ((x + 1) / 2) - 1 << ", " << ((y + 1) / 2) - 1 << ")" << endl; }
 
+int Snake::Length() const
+{ return length; }
+
+Coords Snake::HeadCoords() const
+{ return headCoords; }
+
+int Snake::HeadCoord(Axis ax) const
+{ return headCoords.get(ax); }
+
+Coords Snake::OldHeadCoords() const
+{ return oldHeadCoords; }
+
+int Snake::OldHeadCoord(Axis ax) const
+{ return oldHeadCoords.get(ax); }
+
+Symbol Snake::HeadSymbol() const
+{ return headSymbol; }
+
+Symbol Snake::BodySymbol() const
+{ return bodySymbol; }
+
+vector<Coords> Snake::BodyArray() const
+{ return bodyArray; }
+
 void Snake::move(Direction dir, Direction oldDir)
 {
     oldHeadCoords = headCoords;
@@ -135,21 +159,3 @@ void Snake::move(Direction dir, Direction oldDir)
             break;
     }
 }
-
-Coords Snake::HeadCoords() const
-{ return headCoords; }
-
-Coords Snake::OldHeadCoords() const
-{ return oldHeadCoords; }
-
-int Snake::HeadCoord(Axis ax) const
-{ return headCoords.get(ax); }
-
-int Snake::OldHeadCoord(Axis ax) const
-{ return oldHeadCoords.get(ax); }
-
-Symbol Snake::HeadSymbol() const
-{ return headSymbol; }
-
-Symbol Snake::BodySymbol() const
-{ return bodySymbol; }
