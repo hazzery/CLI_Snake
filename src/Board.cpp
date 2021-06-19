@@ -12,7 +12,7 @@ Board<X, Y>::Board()
     {
         for (int x = 0; x < width; x++)
         {
-            pixelArray[x][y] = '0';
+            pixelArray[x][y] = "0";
         }
     }
     cout << "constructed board of dimension " << width << " by " << height << endl;
@@ -37,5 +37,5 @@ void Board<X, Y>::set(Coords pos, Symbol sym)
     const char* str = GetSymbol(sym);
     pixelArray[pos.get(Axis::x)][pos.get(Axis::y)] = str;
 
-    cout << "set called: (" << pos.get(Axis::x) << ", " << pos.get(Axis::y) << ") to " << symbol << endl;
+    cout << "set called: (" << pos.get(Axis::x) << ", " << pos.get(Axis::y) << ") to " << str << endl;
 }
