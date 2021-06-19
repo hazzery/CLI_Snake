@@ -1,4 +1,5 @@
 #include "../include/Coords.h"
+#include "../include/Symbol.h"
 #include "../include/Board.h"
 #include <iostream>
 using std::cout;
@@ -31,9 +32,10 @@ void Board<X, Y>::print()
 }
 
 template <int X, int Y>
-void Board<X, Y>::set(Coords pos, unsigned char symbol)
+void Board<X, Y>::set(Coords pos, Symbol sym)
 {
-    pixelArray[pos.get(Axis::x)][pos.get(Axis::y)] = symbol;
+    const char* str = GetSymbol(sym);
+    pixelArray[pos.get(Axis::x)][pos.get(Axis::y)] = str;
 
     cout << "set called: (" << pos.get(Axis::x) << ", " << pos.get(Axis::y) << ") to " << symbol << endl;
 }

@@ -2,6 +2,7 @@
 
 #include "Coords.h"
 #include "Direction.h"
+#include "Symbol.h"
 
 class Snake
 {
@@ -17,11 +18,14 @@ public:
     Coords OldHeadCoords() const;
     int OldHeadCoord(Axis ax) const;
     
-    char HeadSymbol() const;
+    Symbol HeadSymbol() const;
+    Symbol BodySymbol() const;
 
 
 private:
-    unsigned char headSymbol;
     Coords headCoords;
     Coords oldHeadCoords;
+
+    Symbol headSymbol;
+    Symbol bodySymbol;
 };

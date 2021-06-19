@@ -1,21 +1,19 @@
-#include "../include/Snake.h"
 #include "../include/Direction.h"
+#include "../include/Coords.h"
+#include "../include/Symbol.h"
+#include "../include/Snake.h"
 #include "../include/Axis.h"
 #include <iostream>
 using std::cout;
 using std::endl;
 
 Snake::Snake()
-    :headSymbol('^'), headCoords(Coords(0, 0)), oldHeadCoords(Coords(0, 0))
-{
-    cout << "constructed empty snake" << endl;
-}
+    :headCoords(Coords()), oldHeadCoords(Coords()), headSymbol(Symbol::LookUp), bodySymbol(Symbol::Vertical)
+{ cout << "constructed empty snake" << endl; }
 
 Snake::Snake(int x, int y)
-    : headSymbol('^'), headCoords(Coords(((x+1)/2)-1, ((y + 1) / 2) - 1)), oldHeadCoords(Coords(0, 0))
-{
-    cout << "constructed snake at pos (" << ((x + 1) / 2) - 1 << ", " << ((y + 1) / 2) - 1 << ")" << endl;
-}
+    : headCoords(Coords(((x+1)/2)-1, ((y + 1) / 2) - 1)), oldHeadCoords(Coords()), headSymbol(Symbol::LookUp), bodySymbol(Symbol::Vertical) 
+{ cout << "constructed snake at pos (" << ((x + 1) / 2) - 1 << ", " << ((y + 1) / 2) - 1 << ")" << endl; }
 
 void Snake::move(Direction dir)
 {
@@ -27,22 +25,113 @@ void Snake::move(Direction dir)
     {
         case Up:
             headCoords.decrement(Axis::y);
-            cout << "up" << endl;
+            headSymbol = Symbol::LookUp;
+            switch(oldDir)
+            {
+                case Up:
+                    bodySymbol = Symbol::Vertical;
+                    break;
+                    
+                case Down:
+                    bodySymbol = Symbol::Vertical;
+                    break;
+                    
+                case Left:
+                    bodySymbol = Symbol::BottomLeft;
+                    break;
+                    
+                case Right:
+                    bodySymbol = Symbol::BottomRight;
+                    break;
+                    
+                case None:
+                    bodySymbol = Symbol::Vertical;
+                    break;
+            }
             break;
             
         case Down:
             headCoords.increment(Axis::y);
-            cout << "down" << endl;
+            headSymbol = Symbol::LookDown;
+            switch(oldDir)
+            {
+                case Up:
+                    bodySymbol = Symbol::Vertical;
+                    break;
+                    
+                case Down:
+                    bodySymbol = Symbol::Vertical;
+                    break;
+                    
+                case Left:
+                    bodySymbol = Symbol::TopLeft;
+                    break;
+                    
+                case Right:
+                    bodySymbol = Symbol::TopRight;
+                    break;
+                    
+                case None:
+                    bodySymbol = Symbol::Vertical;
+                    break;
+            }
             break;
             
         case Left:
             headCoords.decrement(Axis::x);
-            cout << "left" << endl;
+            headSymbol = Symbol::LookLeft;
+            switch(oldDir)
+            {
+                case Up:
+                    bodySymbol = Symbol::TopRight;
+                    break;
+                    
+                case Down:
+                    bodySymbol = Symbol::BottomRight;
+                    break;
+                    
+                case Left:
+                    bodySymbol = Symbol::Horizontal;
+                    break;
+                    
+                case Right:
+                    bodySymbol = Symbol::Horizontal;
+                    break;
+                    
+                case None:
+                    bodySymbol = Symbol::Horizontal;
+                    break;
+            }
             break;
             
         case Right:
             headCoords.increment(Axis::x);
-            cout << "right" << endl;
+            headSymbol = Symbol::LookRight;
+            switch(oldDir)
+            {
+                case Up:
+                    bodySymbol = Symbol::TopLeft;
+                    break;
+                    
+                case Down:
+                    bodySymbol = Symbol::BottomLeft;
+                    break;
+                    
+                case Left:
+                    bodySymbol = Symbol::Horizontal;
+                    break;
+                    
+                case Right:
+                    bodySymbol = Symbol::Horizontal;
+                    break;
+                    
+                case None:
+                    bodySymbol = Symbol::Horizontal;
+                    break;
+            }
+            break;
+        case None:
+            cout << "Current direction was None :/" << endl;
             break;
     }
 }
@@ -59,5 +148,8 @@ int Snake::HeadCoord(Axis ax) const
 int Snake::OldHeadCoord(Axis ax) const
 { return oldHeadCoords.get(ax); }
 
-char Snake::HeadSymbol() const
+Symbol Snake::HeadSymbol() const
 { return headSymbol; }
+
+Symbol Snake::BodySymbol() const
+{ return bodySymbol; }

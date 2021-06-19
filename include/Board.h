@@ -1,5 +1,8 @@
 #pragma once
 
+#include "Coords.h"
+#include "Symbol.h"
+
 template<int X, int Y>
 class Board
 {
@@ -11,8 +14,8 @@ class Board
         static int constexpr width = X;
         static int constexpr height = Y;
 
-        void set(Coords pos, unsigned char symbol);
+        void set(Coords pos, Symbol sym);
 
     private:
-        char pixelArray[X][Y];
+        const char* pixelArray[X][Y];
 };
