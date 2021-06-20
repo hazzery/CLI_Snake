@@ -1,5 +1,5 @@
 #pragma once
-#include "axis.h"
+#include "Axis.h"
 #include <iostream>
 using std::ostream;
 
