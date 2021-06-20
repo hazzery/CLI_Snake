@@ -51,6 +51,9 @@ void Snake::move(Direction dir, Direction oldDir)
             cout << "up" << endl;
             headCoords.decrement(Axis::y);
             headSymbol = Head_Symbol::LookUp;
+            
+            updateArray();
+
             switch(oldDir)
             {
                 case Up:
@@ -79,6 +82,9 @@ void Snake::move(Direction dir, Direction oldDir)
             cout << "down" << endl;
             headCoords.increment(Axis::y);
             headSymbol = Head_Symbol::LookDown;
+            
+            updateArray();
+            
             switch(oldDir)
             {
                 case Up:
@@ -107,6 +113,9 @@ void Snake::move(Direction dir, Direction oldDir)
             cout << "left" << endl;
             headCoords.decrement(Axis::x);
             headSymbol = Head_Symbol::LookLeft;
+            
+            updateArray();
+            
             switch(oldDir)
             {
                 case Up:
@@ -135,6 +144,9 @@ void Snake::move(Direction dir, Direction oldDir)
             cout << "right" << endl;
             headCoords.increment(Axis::x);
             headSymbol = Head_Symbol::LookRight;
+            
+            updateArray();
+            
             switch(oldDir)
             {
                 case Up:
@@ -161,5 +173,16 @@ void Snake::move(Direction dir, Direction oldDir)
         case None:
             cout << "Current direction was None :/" << endl;
             break;
+    }
+}
+
+void Snake::updateArray()
+{
+    bodyArray.push_back(headCoords);
+    
+    try {
+        bodyArray.erase(bodyArray.begin() + length - 1);
+    } catch (int/*Lol, obviosly I don't want to catch integers, i just don't know what needs to go here yet*/) {
+        cout << "oopsies, array out of bounds" << endl;
     }
 }

@@ -37,4 +37,6 @@ private:
     Body_Symbol bodySymbol;
     
     vector<Coords> bodyArray;
+    
+    void updateArray();
 };
