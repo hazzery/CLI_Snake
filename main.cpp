@@ -12,8 +12,11 @@ using std::endl;
 
 int main()
 {
-    Board<14, 8> board;
-    Snake snake(14, 8);
+    static constexpr int const width = 19;
+    static constexpr int const height = 11;
+    
+    Board<width, height> board;
+    Snake snake(width, height);
     
     Direction dir = None;
     Direction oldDir = None;
@@ -32,8 +35,29 @@ int main()
         
         board.set(snake.OldHeadCoords(), snake.BodySymbol());
 
+//        cout << snake.OldHeadCoords() << endl;
+        
         loops++;
-
     }
-//        cout << "(" << snake.OldHeadCoords().get(Axis::x) << ", " << snake.OldHeadCoords().get(Axis::x) << ")" << endl;
 }
+
+
+/*
+ Head coords are updated
+ check if new head coords are occupied by apple/wall/body
+ case apple
+    snake.length++
+    continue
+ 
+ case wall
+    game over (for for standard mode, teleport to opposote end in easy)
+ 
+ case snake
+    game over
+ 
+ case none
+    continue
+ 
+ add new head coords to body array
+ remove bodyArray[length-1]
+ */
