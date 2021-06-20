@@ -36,7 +36,7 @@ Head_Symbol Snake::HeadSymbol() const
 Body_Symbol Snake::BodySymbol() const
 { return bodySymbol; }
 
-vector<Coords> Snake::BodyArray() const
+const vector<Coords>& Snake::BodyArray() const
 { return bodyArray; }
 
 void Snake::move(Direction dir, Direction oldDir)

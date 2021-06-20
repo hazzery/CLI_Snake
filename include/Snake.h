@@ -23,7 +23,7 @@ public:
     Head_Symbol HeadSymbol() const;
     Body_Symbol BodySymbol() const;
 
-    vector<Coords> BodyArray() const;
+    const vector<Coords>& BodyArray() const;
     
     void move(Direction dir, Direction oldDir);
     
