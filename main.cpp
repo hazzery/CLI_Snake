@@ -43,6 +43,8 @@ int main()
 
 
 /*
+ Single threaded order of operations.
+ 
  Head coords are updated
  check if new head coords are occupied by apple/wall/body
  case apple
@@ -50,7 +52,7 @@ int main()
     continue
  
  case wall
-    game over (for for standard mode, teleport to opposote end in easy)
+    game over (for standard difficulty, teleport to opposote side in easy)
  
  case snake
     game over
@@ -60,4 +62,17 @@ int main()
  
  add new head coords to body array
  remove bodyArray[length-1]
+ 
+ Update screen
+ */
+
+/*
+ (probably bad) Idea for multi threading
+ 
+ the main thread focuses plays the whole game without any visual output.
+ It never ever reads or writes to the board class.
+ 
+ Drawing on the board is entirely handled by a sperate thread,
+ which is constantly checking the Coords values from the main thread,
+ updating the symbols onto the board accordingly.
  */
