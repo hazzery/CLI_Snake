@@ -16,7 +16,7 @@ Snake::Snake(int x, int y)
 { cout << "constructed snake at pos (" << ((x + 1) / 2) - 1 << ", " << ((y + 1) / 2) - 1 << ")" << endl; }
 
 unsigned int Snake::Length() const
-{ return bodyArray.size(); }
+{ return length; }
 
 Coords Snake::HeadCoords() const
 { return headCoords; }

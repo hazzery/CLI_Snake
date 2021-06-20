@@ -28,6 +28,8 @@ public:
     void move(Direction dir, Direction oldDir);
     
 private:
+    int length;
+    
     Coords headCoords;
     Coords oldHeadCoords;
 
