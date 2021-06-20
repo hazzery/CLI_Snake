@@ -1,37 +1,53 @@
 #include "../include/Symbol.h"
 
-const char* GetSymbol(Symbol sym)
+//╔
+//╗
+//╚
+//╝
+//═
+//║
+//^
+//«
+//»
+//¥
+
+const char* GetSymbol(Head_Symbol sym)
 {
     switch(sym)
     {
-        case Symbol::TopLeft:
-            return "╔";
-            
-        case Symbol::TopRight:
-            return "╗";
-            
-        case Symbol::BottomLeft:
-            return "╚";
-            
-        case Symbol::BottomRight:
-            return "╝";
-            
-        case Symbol::Horizontal:
-            return "═";
-            
-        case Symbol::Vertical:
-            return "║";
-            
-        case Symbol::LookUp:
+       case Head_Symbol::LookUp:
             return "^";
             
-        case Symbol::LookLeft:
+        case Head_Symbol::LookLeft:
             return "«";
             
-        case Symbol::LookRight:
+        case Head_Symbol::LookRight:
             return "»";
             
-        case Symbol::LookDown:
+        case Head_Symbol::LookDown:
             return "¥";
+    }
+}
+const char* GetSymbol(Body_Symbol sym)
+{
+    switch(sym)
+    {
+        case Body_Symbol::TopLeft:
+            return "╔";
+            
+        case Body_Symbol::TopRight:
+            return "╗";
+            
+        case Body_Symbol::BottomLeft:
+            return "╚";
+            
+        case Body_Symbol::BottomRight:
+            return "╝";
+            
+        case Body_Symbol::Horizontal:
+            return "═";
+            
+        case Body_Symbol::Vertical:
+            return "║";
     }
 }

@@ -1,17 +1,33 @@
 #pragma once
+//};
+//╔
+//╗
+//╚
+//╝
+//═
+//║
+//^
+//«
+//»
+//¥
 
-enum class Symbol
+enum class Head_Symbol
+{
+    LookUp,
+    LookLeft,
+    LookRight,
+    LookDown
+};
+
+enum class Body_Symbol
 {
     TopLeft,
     TopRight,
     BottomLeft,
     BottomRight,
     Horizontal,
-    Vertical,
-    LookUp,
-    LookLeft,
-    LookRight,
-    LookDown,
+    Vertical
 };
 
-extern const char* GetSymbol(Symbol sym);
+extern const char* GetSymbol(Head_Symbol sym);
+extern const char* GetSymbol(Body_Symbol sym);
