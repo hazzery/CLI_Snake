@@ -8,11 +8,11 @@ using std::cout;
 using std::endl;
 
 Snake::Snake()
-    :headCoords(Coords()), oldHeadCoords(Coords()), headSymbol(Symbol::LookUp), bodySymbol(Symbol::Vertical)
+    :headCoords(Coords()), oldHeadCoords(Coords()), headSymbol(Head_Symbol::LookUp), bodySymbol(Body_Symbol::Vertical)
 { cout << "constructed empty snake" << endl; }
 
 Snake::Snake(int x, int y)
-    : headCoords(Coords(((x+1)/2)-1, ((y + 1) / 2) - 1)), oldHeadCoords(Coords()), headSymbol(Symbol::LookUp), bodySymbol(Symbol::Vertical) 
+    : headCoords(Coords(((x+1)/2)-1, ((y + 1) / 2) - 1)), oldHeadCoords(Coords()), headSymbol(Head_Symbol::LookUp), bodySymbol(Body_Symbol::Vertical) 
 { cout << "constructed snake at pos (" << ((x + 1) / 2) - 1 << ", " << ((y + 1) / 2) - 1 << ")" << endl; }
 
 int Snake::Length() const
@@ -30,10 +30,10 @@ Coords Snake::OldHeadCoords() const
 int Snake::OldHeadCoord(Axis ax) const
 { return oldHeadCoords.get(ax); }
 
-Symbol Snake::HeadSymbol() const
+Head_Symbol Snake::HeadSymbol() const
 { return headSymbol; }
 
-Symbol Snake::BodySymbol() const
+Body_Symbol Snake::BodySymbol() const
 { return bodySymbol; }
 
 vector<Coords> Snake::BodyArray() const
@@ -48,109 +48,113 @@ void Snake::move(Direction dir, Direction oldDir)
     switch(dir)
     {
         case Up:
+            cout << "up" << endl;
             headCoords.decrement(Axis::y);
-            headSymbol = Symbol::LookUp;
+            headSymbol = Head_Symbol::LookUp;
             switch(oldDir)
             {
                 case Up:
-                    bodySymbol = Symbol::Vertical;
+                    bodySymbol = Body_Symbol::Vertical;
                     break;
                     
                 case Down:
-                    bodySymbol = Symbol::Vertical;
+                    bodySymbol = Body_Symbol::Vertical;
                     break;
                     
                 case Left:
-                    bodySymbol = Symbol::BottomLeft;
+                    bodySymbol = Body_Symbol::BottomLeft;
                     break;
                     
                 case Right:
-                    bodySymbol = Symbol::BottomRight;
+                    bodySymbol = Body_Symbol::BottomRight;
                     break;
                     
                 case None:
-                    bodySymbol = Symbol::Vertical;
+                    bodySymbol = Body_Symbol::Vertical;
                     break;
             }
             break;
             
         case Down:
+            cout << "down" << endl;
             headCoords.increment(Axis::y);
-            headSymbol = Symbol::LookDown;
+            headSymbol = Head_Symbol::LookDown;
             switch(oldDir)
             {
                 case Up:
-                    bodySymbol = Symbol::Vertical;
+                    bodySymbol = Body_Symbol::Vertical;
                     break;
                     
                 case Down:
-                    bodySymbol = Symbol::Vertical;
+                    bodySymbol = Body_Symbol::Vertical;
                     break;
                     
                 case Left:
-                    bodySymbol = Symbol::TopLeft;
+                    bodySymbol = Body_Symbol::TopLeft;
                     break;
                     
                 case Right:
-                    bodySymbol = Symbol::TopRight;
+                    bodySymbol = Body_Symbol::TopRight;
                     break;
                     
                 case None:
-                    bodySymbol = Symbol::Vertical;
+                    bodySymbol = Body_Symbol::Vertical;
                     break;
             }
             break;
             
         case Left:
+            cout << "left" << endl;
             headCoords.decrement(Axis::x);
-            headSymbol = Symbol::LookLeft;
+            headSymbol = Head_Symbol::LookLeft;
             switch(oldDir)
             {
                 case Up:
-                    bodySymbol = Symbol::TopRight;
+                    bodySymbol = Body_Symbol::TopRight;
                     break;
                     
                 case Down:
-                    bodySymbol = Symbol::BottomRight;
+                    bodySymbol = Body_Symbol::BottomRight;
                     break;
                     
                 case Left:
-                    bodySymbol = Symbol::Horizontal;
+                    bodySymbol = Body_Symbol::Horizontal;
                     break;
                     
                 case Right:
-                    bodySymbol = Symbol::Horizontal;
+                    bodySymbol = Body_Symbol::Horizontal;
                     break;
                     
                 case None:
-                    bodySymbol = Symbol::Horizontal;
+                    bodySymbol = Body_Symbol::Horizontal;
                     break;
             }
             break;
             
         case Right:
+            cout << "right" << endl;
             headCoords.increment(Axis::x);
-            headSymbol = Symbol::LookRight;
+            headSymbol = Head_Symbol::LookRight;
             switch(oldDir)
             {
                 case Up:
-                    bodySymbol = Symbol::TopLeft;
+                    bodySymbol = Body_Symbol::TopLeft;
                     break;
                     
                 case Down:
-                    bodySymbol = Symbol::BottomLeft;
+                    bodySymbol = Body_Symbol::BottomLeft;
                     break;
                     
                 case Left:
-                    bodySymbol = Symbol::Horizontal;
+                    bodySymbol = Body_Symbol::Horizontal;
                     break;
                     
                 case Right:
-                    bodySymbol = Symbol::Horizontal;
+                    bodySymbol = Body_Symbol::Horizontal;
                     break;
                     
                 case None:
-                    bodySymbol = Symbol::Horizontal;
+                    bodySymbol = Body_Symbol::Horizontal;
                     break;
             }
             break;

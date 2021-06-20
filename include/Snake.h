@@ -20,8 +20,8 @@ public:
     Coords OldHeadCoords() const;
     int OldHeadCoord(Axis ax) const;
     
-    Symbol HeadSymbol() const;
-    Symbol BodySymbol() const;
+    Head_Symbol HeadSymbol() const;
+    Body_Symbol BodySymbol() const;
 
     vector<Coords> BodyArray() const;
     
@@ -31,8 +31,8 @@ private:
     Coords headCoords;
     Coords oldHeadCoords;
 
-    Symbol headSymbol;
-    Symbol bodySymbol;
+    Head_Symbol headSymbol;
+    Body_Symbol bodySymbol;
     
     vector<Coords> bodyArray;
 };
