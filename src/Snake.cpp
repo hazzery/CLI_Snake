@@ -15,19 +15,19 @@ Snake::Snake(int x, int y)
     : headCoords(Coords(((x+1)/2)-1, ((y + 1) / 2) - 1)), oldHeadCoords(Coords()), headSymbol(Head_Symbol::LookUp), bodySymbol(Body_Symbol::Vertical) 
 { cout << "constructed snake at pos (" << ((x + 1) / 2) - 1 << ", " << ((y + 1) / 2) - 1 << ")" << endl; }
 
-int Snake::Length() const
-{ return length; }
+unsigned int Snake::Length() const
+{ return bodyArray.size(); }
 
 Coords Snake::HeadCoords() const
 { return headCoords; }
 
-int Snake::HeadCoord(Axis ax) const
+unsigned int Snake::HeadCoord(Axis ax) const
 { return headCoords.get(ax); }
 
 Coords Snake::OldHeadCoords() const
 { return oldHeadCoords; }
 
-int Snake::OldHeadCoord(Axis ax) const
+unsigned int Snake::OldHeadCoord(Axis ax) const
 { return oldHeadCoords.get(ax); }
 
 Head_Symbol Snake::HeadSymbol() const

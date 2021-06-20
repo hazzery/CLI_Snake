@@ -12,13 +12,13 @@ public:
     Snake();
     Snake(int x, int y);
     
-    int Length() const;
+    unsigned int Length() const;
     
     Coords HeadCoords() const;
-    int HeadCoord(Axis ax) const;
+    unsigned int HeadCoord(Axis ax) const;
 
     Coords OldHeadCoords() const;
-    int OldHeadCoord(Axis ax) const;
+    unsigned int OldHeadCoord(Axis ax) const;
     
     Head_Symbol HeadSymbol() const;
     Body_Symbol BodySymbol() const;
