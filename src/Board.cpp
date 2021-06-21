@@ -19,7 +19,7 @@ Board<X, Y>::Board()
 }
 
 template <int X, int Y>
-void Board<X, Y>::print()
+void Board<X, Y>::print() const
 {
     for (int y = 0; y < height; y++)
     {
@@ -32,7 +32,7 @@ void Board<X, Y>::print()
 }
 
 template <int X, int Y>
-void Board<X, Y>::set(Coords pos, Head_Symbol sym)
+void Board<X, Y>::set(const Coords& pos, const Head_Symbol sym)
 {
     const char* str = GetSymbol(sym);
     pixelArray[pos.get(Axis::x)][pos.get(Axis::y)] = str;
@@ -41,7 +41,7 @@ void Board<X, Y>::set(Coords pos, Head_Symbol sym)
 }
 
 template <int X, int Y>
-void Board<X, Y>::set(Coords pos, Body_Symbol sym)
+void Board<X, Y>::set(const Coords& pos, const Body_Symbol sym)
 {
     const char* str = GetSymbol(sym);
     pixelArray[pos.get(Axis::x)][pos.get(Axis::y)] = str;

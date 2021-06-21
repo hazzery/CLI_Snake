@@ -15,31 +15,31 @@ Snake::Snake(int x, int y)
     :length(1), headCoords(Coords(((x+1)/2)-1, ((y + 1) / 2) - 1)), oldHeadCoords(Coords()), headSymbol(Head_Symbol::LookUp), bodySymbol(Body_Symbol::Vertical) 
 { cout << "constructed snake at pos (" << ((x + 1) / 2) - 1 << ", " << ((y + 1) / 2) - 1 << ")" << endl; }
 
-unsigned int Snake::Length() const
+const unsigned int Snake::Length() const
 { return length; }
 
-Coords Snake::HeadCoords() const
+const Coords& Snake::HeadCoords() const
 { return headCoords; }
 
-unsigned int Snake::HeadCoord(Axis ax) const
+const unsigned int Snake::HeadCoord(const Axis& ax) const
 { return headCoords.get(ax); }
 
-Coords Snake::OldHeadCoords() const
+const Coords& Snake::OldHeadCoords() const
 { return oldHeadCoords; }
 
-unsigned int Snake::OldHeadCoord(Axis ax) const
+const unsigned int Snake::OldHeadCoord(const Axis& ax) const
 { return oldHeadCoords.get(ax); }
 
-Head_Symbol Snake::HeadSymbol() const
+const Head_Symbol& Snake::HeadSymbol() const
 { return headSymbol; }
 
-Body_Symbol Snake::BodySymbol() const
+const Body_Symbol& Snake::BodySymbol() const
 { return bodySymbol; }
 
 const vector<Coords>& Snake::BodyArray() const
 { return bodyArray; }
 
-void Snake::move(Direction dir, Direction oldDir)
+void Snake::move(const Direction& dir, const Direction& oldDir)
 {
     oldHeadCoords = headCoords;
     

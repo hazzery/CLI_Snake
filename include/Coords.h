@@ -10,12 +10,12 @@ class Coords
     
   public:
     Coords();
-    Coords(int x, int y);
+    Coords(const int x, const int y);
 
-    int get(Axis ax) const;
+    int get(const Axis& ax) const;
 
-    void increment(Axis ax);
-    void decrement(Axis ax);
+    void increment(const Axis& ax);
+    void decrement(const Axis& ax);
     
     friend ostream& operator<<(ostream& os, const Coords& pos);
 };

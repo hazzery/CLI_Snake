@@ -29,5 +29,5 @@ enum class Body_Symbol
     Vertical
 };
 
-extern const char* GetSymbol(Head_Symbol sym);
-extern const char* GetSymbol(Body_Symbol sym);
+extern const char* GetSymbol(const Head_Symbol sym);
+extern const char* GetSymbol(const Body_Symbol sym);

@@ -3,10 +3,10 @@
 Coords::Coords()
 	:xOrdinate(-1), yOrdinate(-1) {}
 
-Coords::Coords(int x, int y)
+Coords::Coords(const int x, const int y)
 	:xOrdinate(x), yOrdinate(y) {}
     
-int Coords::get(Axis ax) const
+int Coords::get(const Axis& ax) const
 {
     if(ax == Axis::x)
         return xOrdinate;
@@ -14,7 +14,7 @@ int Coords::get(Axis ax) const
         return yOrdinate;
 }
 
-void Coords::increment(Axis ax)
+void Coords::increment(const Axis& ax)
 {
     if(ax == Axis::x)
         xOrdinate++;
@@ -22,7 +22,7 @@ void Coords::increment(Axis ax)
         yOrdinate++;
 }
 
-void Coords::decrement(Axis ax)
+void Coords::decrement(const Axis& ax)
 {
     if(ax == Axis::x)
         xOrdinate--;

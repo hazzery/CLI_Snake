@@ -11,7 +11,7 @@
 //»
 //¥
 
-const char* GetSymbol(Head_Symbol sym)
+const char* GetSymbol(const Head_Symbol sym)
 {
     switch(sym)
     {
@@ -30,7 +30,7 @@ const char* GetSymbol(Head_Symbol sym)
 
     return "You done goofed my friend, this should have been a Head_Symbol, but now its an unfunny error message!";
 }
-const char* GetSymbol(Body_Symbol sym)
+const char* GetSymbol(const Body_Symbol sym)
 {
     switch(sym)
     {
