@@ -48,3 +48,21 @@ void Board<X, Y>::Set(const Coords& pos, const Body_Symbol sym)
     
 //    cout << "Set : " << pos << " to " << str << endl;
 }
+
+template <int X, int Y>
+int Board<X, Y>::Get(const Coords& pos) const
+{
+    const char * str = pixelArray[pos.get(Axis::x)][pos.get(Axis::y)];
+    
+    if (!(strcmp(str, "^") || strcmp(str, "«") || strcmp(str, "»") || strcmp(str, "¥")))
+        return 1;
+    
+    else if (!(strcmp(str, "╔") || strcmp(str, "╗") || strcmp(str, "╚") || strcmp(str, "╝") || strcmp(str, "═") || strcmp(str, "║")))
+        return 2;
+    
+    else if (!strcmp(str, "@"))
+        return 3;
+    
+    else
+        return 0;
+}
