@@ -37,7 +37,7 @@ void Board<X, Y>::set(Coords pos, Head_Symbol sym)
     const char* str = GetSymbol(sym);
     pixelArray[pos.get(Axis::x)][pos.get(Axis::y)] = str;
 
-    cout << "set called: (" << pos.get(Axis::x) << ", " << pos.get(Axis::y) << ") to " << str << endl;
+    cout << "set called: " << pos << " to " << str << endl;
 }
 
 template <int X, int Y>
@@ -46,5 +46,5 @@ void Board<X, Y>::set(Coords pos, Body_Symbol sym)
     const char* str = GetSymbol(sym);
     pixelArray[pos.get(Axis::x)][pos.get(Axis::y)] = str;
     
-    cout << "set called: (" << pos.get(Axis::x) << ", " << pos.get(Axis::y) << ") to " << str << endl;
+    cout << "set called: " << pos << " to " << str << endl;
 }
