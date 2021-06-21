@@ -182,7 +182,7 @@ void Snake::updateArray()
     
     try {
         bodyArray.erase(bodyArray.begin() + length - 1);
-    } catch (int/*Lol, obviosly I don't want to catch integers, i just don't know what needs to go here yet*/) {
+    } catch (std::out_of_range) {
         cout << "oopsies, array out of bounds" << endl;
     }
 }
