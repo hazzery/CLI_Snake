@@ -35,17 +35,17 @@ int main()
         snake.move(dir, oldDir);
         oldDir = dir;
         
+        //To do: make apples do somthing
+        //find out why initializing snake length to 3 breaks program :/
+        
         board.Set(snake.HeadCoords(), snake.HeadSymbol());
         board.Set(snake.OldHeadCoords(), snake.BodySymbol());
         board.Clear(snake.TailCoords());
         board.Print();
-
-//        cout << snake.OldHeadCoords() << endl;
         
         loops++;
     }
 }
-
 
 /*
  Single threaded order of operations.

@@ -12,7 +12,7 @@ Snake::Snake()
 {/*cout << "constructed empty snake" << endl;*/ }
 
 Snake::Snake(int x, int y)
-    :length(1), headCoords(Coords(((x+1)/2)-1, ((y + 1) / 2) - 1)), oldHeadCoords(Coords()), headSymbol(Head_Symbol::LookUp), bodySymbol(Body_Symbol::Vertical)
+    :length(3), headCoords(Coords(((x+1)/2)-1, ((y + 1) / 2) - 1)), oldHeadCoords(Coords()), headSymbol(Head_Symbol::LookUp), bodySymbol(Body_Symbol::Vertical)
 {
     bodyArray.reserve(2);
     bodyArray.push_back(headCoords);
