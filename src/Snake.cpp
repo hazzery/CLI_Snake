@@ -190,3 +190,6 @@ void Snake::updateArray()
 //    }
 //    cout << endl;
 }
+
+const Coords& Snake::TailCoords() const
+{ return tailCoords; }

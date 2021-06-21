@@ -27,6 +27,8 @@ public:
 
     const vector<Coords>& BodyArray() const;
     
+    const Coords& TailCoords() const;
+    
     
 private:
     int length;
@@ -38,6 +40,8 @@ private:
     Body_Symbol bodySymbol;
     
     vector<Coords> bodyArray;
+    
+    Coords tailCoords;
     
 private:
     void updateArray();
