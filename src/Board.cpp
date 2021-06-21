@@ -8,9 +8,9 @@ using std::endl;
 template <int X, int Y>
 Board<X, Y>::Board()
 {
-    for (int y = 0; y < height; y++)
+    for (int y = 0; y < Height; y++)
     {
-        for (int x = 0; x < width; x++)
+        for (int x = 0; x < Width; x++)
         {
             pixelArray[x][y] = "0";
         }
@@ -19,11 +19,11 @@ Board<X, Y>::Board()
 }
 
 template <int X, int Y>
-void Board<X, Y>::print() const
+void Board<X, Y>::Print() const
 {
-    for (int y = 0; y < height; y++)
+    for (int y = 0; y < Height; y++)
     {
-        for (int x = 0; x < width; x++)
+        for (int x = 0; x < Width; x++)
         {
             cout << pixelArray[x][y];
         }
@@ -32,7 +32,7 @@ void Board<X, Y>::print() const
 }
 
 template <int X, int Y>
-void Board<X, Y>::set(const Coords& pos, const Head_Symbol sym)
+void Board<X, Y>::Set(const Coords& pos, const Head_Symbol sym)
 {
     const char* str = GetSymbol(sym);
     pixelArray[pos.get(Axis::x)][pos.get(Axis::y)] = str;
@@ -41,10 +41,10 @@ void Board<X, Y>::set(const Coords& pos, const Head_Symbol sym)
 }
 
 template <int X, int Y>
-void Board<X, Y>::set(const Coords& pos, const Body_Symbol sym)
+void Board<X, Y>::Set(const Coords& pos, const Body_Symbol sym)
 {
     const char* str = GetSymbol(sym);
     pixelArray[pos.get(Axis::x)][pos.get(Axis::y)] = str;
     
-//    cout << "set called: " << pos << " to " << str << endl;
+//    cout << "Set : " << pos << " to " << str << endl;
 }

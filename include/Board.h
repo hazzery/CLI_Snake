@@ -6,19 +6,20 @@
 template<int X, int Y>
 class Board
 {
-    public:
-        Board();
+public:
+    Board();
 
-        void print() const;
+    void Print() const;
 
-        static int constexpr width = X;
-        static int constexpr height = Y;
+    void Set(const Coords& pos, const Head_Symbol sym);
+    void Set(const Coords& pos, const Body_Symbol sym);
 
-        void set(const Coords& pos, const Head_Symbol sym);
-        void set(const Coords& pos, const Body_Symbol sym);
-    
-        int get(const Coords& pos) const;
+    int Get(const Coords& pos) const;
 
-    private:
-        const char* pixelArray[X][Y];
+public:
+    static int constexpr Width = X;
+    static int constexpr Height = Y;
+
+private:
+    const char* pixelArray[X][Y];
 };
