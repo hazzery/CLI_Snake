@@ -3,6 +3,7 @@
 #include "include/Symbol.h"
 #include "include/Board.h"
 #include "include/Snake.h"
+#include "include/Apple.h"
 #include "src/Board.cpp"
 #include <iostream>
 using std::string;
@@ -12,28 +13,32 @@ using std::endl;
 
 int main()
 {
-    static constexpr int const width = 19;
+    static constexpr int const width = 21;
     static constexpr int const height = 11;
     
     Board<width, height> board;
     Snake snake(width, height);
+    Apple apple({1, 1});
     
     Direction dir = None;
     Direction oldDir = None;
 
+    board.Set(snake.HeadCoords(), snake.HeadSymbol());
+    board.Print();
+    
     int loops = 0;
     while (loops < 15)
     {
-        board.set(snake.HeadCoords(), snake.HeadSymbol());
-        board.print();
-
         char keyboardInput;
         cin >> keyboardInput;
         dir = (Direction)keyboardInput;
         snake.move(dir, oldDir);
         oldDir = dir;
         
-        board.set(snake.OldHeadCoords(), snake.BodySymbol());
+        board.Set(snake.HeadCoords(), snake.HeadSymbol());
+        board.Set(snake.OldHeadCoords(), snake.BodySymbol());
+        board.Clear(snake.TailCoords());
+        board.Print();
 
 //        cout << snake.OldHeadCoords() << endl;
         

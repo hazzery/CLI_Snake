@@ -10,9 +10,7 @@ Coords::Coords(const int x, const int y)
 
 Coords::Coords(const Coords& pos)
     :xOrdinate(pos.xOrdinate), yOrdinate(pos.yOrdinate)
-{
-    cout << "bro, you just coppied " << pos << endl;
-}
+{ /*cout << "bro, you just coppied " << pos << endl; */ }
     
 int Coords::get(const Axis& ax) const
 {
