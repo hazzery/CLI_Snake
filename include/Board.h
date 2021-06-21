@@ -16,6 +16,8 @@ class Board
 
         void set(Coords pos, Head_Symbol sym);
         void set(Coords pos, Body_Symbol sym);
+    
+        int get(Coords pos);
 
     private:
         const char* pixelArray[X][Y];
