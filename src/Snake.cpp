@@ -12,8 +12,11 @@ Snake::Snake()
 { cout << "constructed empty snake" << endl; }
 
 Snake::Snake(int x, int y)
-    :length(1), headCoords(Coords(((x+1)/2)-1, ((y + 1) / 2) - 1)), oldHeadCoords(Coords()), headSymbol(Head_Symbol::LookUp), bodySymbol(Body_Symbol::Vertical) 
-{ cout << "constructed snake at pos (" << ((x + 1) / 2) - 1 << ", " << ((y + 1) / 2) - 1 << ")" << endl; }
+    :length(1), headCoords(Coords(((x+1)/2)-1, ((y + 1) / 2) - 1)), oldHeadCoords(Coords()), headSymbol(Head_Symbol::LookUp), bodySymbol(Body_Symbol::Vertical)
+{
+    bodyArray.reserve(2);
+    bodyArray.push_back(headCoords);
+}
 
 const unsigned int Snake::Length() const
 { return length; }
@@ -179,10 +182,11 @@ void Snake::move(const Direction& dir, const Direction& oldDir)
 void Snake::updateArray()
 {
     bodyArray.push_back(headCoords);
+    bodyArray.erase(bodyArray.begin() + length - 1);
     
-    try {
-        bodyArray.erase(bodyArray.begin() + length - 1);
-    } catch (std::out_of_range) {
-        cout << "oopsies, array out of bounds" << endl;
+    cout << "bodyArray now be looking like: ";
+    for (const Coords& pos : bodyArray) {
+        cout << pos << ", ";
     }
+    cout << endl;
 }
