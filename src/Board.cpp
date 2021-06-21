@@ -66,3 +66,11 @@ int Board<X, Y>::Get(const Coords& pos) const
     else
         return 0;
 }
+
+template <int X, int Y>
+void Board<X, Y>::Clear(const Coords& pos)
+{
+    pixelArray[pos.get(Axis::x)][pos.get(Axis::y)] = "0";
+    
+    //    cout << "Cleared: " << pos << endl;
+}

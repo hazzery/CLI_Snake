@@ -15,6 +15,8 @@ public:
     void Set(const Coords& pos, const Body_Symbol sym);
 
     int Get(const Coords& pos) const;
+    
+    void Clear(const Coords& pos);
 
 public:
     static int constexpr Width = X;
