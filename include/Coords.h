@@ -11,6 +11,7 @@ class Coords
   public:
     Coords();
     Coords(const int x, const int y);
+    Coords(const Coords& pos);
 
     int get(const Axis& ax) const;
 
