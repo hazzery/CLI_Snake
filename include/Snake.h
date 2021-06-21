@@ -27,7 +27,6 @@ public:
 
     const vector<Coords>& BodyArray() const;
     
-    void move(Direction dir, Direction oldDir);
     
 private:
     int length;
