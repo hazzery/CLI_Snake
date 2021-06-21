@@ -44,5 +44,5 @@ private:
     Coords tailCoords;
     
 private:
-    void updateArray();
+    void updateBody();
 };

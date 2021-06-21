@@ -55,7 +55,7 @@ void Snake::move(const Direction& dir, const Direction& oldDir)
             headCoords.decrement(Axis::y);
             headSymbol = Head_Symbol::LookUp;
             
-            updateArray();
+            updateBody();
 
             switch(oldDir)
             {
@@ -86,7 +86,7 @@ void Snake::move(const Direction& dir, const Direction& oldDir)
             headCoords.increment(Axis::y);
             headSymbol = Head_Symbol::LookDown;
             
-            updateArray();
+            updateBody();
             
             switch(oldDir)
             {
@@ -117,7 +117,7 @@ void Snake::move(const Direction& dir, const Direction& oldDir)
             headCoords.decrement(Axis::x);
             headSymbol = Head_Symbol::LookLeft;
             
-            updateArray();
+            updateBody();
             
             switch(oldDir)
             {
@@ -148,7 +148,7 @@ void Snake::move(const Direction& dir, const Direction& oldDir)
             headCoords.increment(Axis::x);
             headSymbol = Head_Symbol::LookRight;
             
-            updateArray();
+            updateBody();
             
             switch(oldDir)
             {
@@ -179,9 +179,12 @@ void Snake::move(const Direction& dir, const Direction& oldDir)
     }
 }
 
-void Snake::updateArray()
+void Snake::updateBody()
 {
     bodyArray.push_back(headCoords);
+    
+    tailCoords = bodyArray[length - 1];
+    
     bodyArray.erase(bodyArray.begin() + length - 1);
     
 //    cout << "bodyArray now be looking like: ";
