@@ -9,7 +9,7 @@ using std::endl;
 
 Snake::Snake()
     :length(1), headCoords(Coords()), oldHeadCoords(Coords()), headSymbol(Head_Symbol::LookUp), bodySymbol(Body_Symbol::Vertical)
-{ cout << "constructed empty snake" << endl; }
+{/*cout << "constructed empty snake" << endl;*/ }
 
 Snake::Snake(int x, int y)
     :length(1), headCoords(Coords(((x+1)/2)-1, ((y + 1) / 2) - 1)), oldHeadCoords(Coords()), headSymbol(Head_Symbol::LookUp), bodySymbol(Body_Symbol::Vertical)
@@ -46,12 +46,12 @@ void Snake::move(const Direction& dir, const Direction& oldDir)
 {
     oldHeadCoords = headCoords;
     
-    cout << "move snake ";
+//    cout << "move snake ";
 
     switch(dir)
     {
         case Up:
-            cout << "up" << endl;
+//            cout << "up" << endl;
             headCoords.decrement(Axis::y);
             headSymbol = Head_Symbol::LookUp;
             
@@ -82,7 +82,7 @@ void Snake::move(const Direction& dir, const Direction& oldDir)
             break;
             
         case Down:
-            cout << "down" << endl;
+//            cout << "down" << endl;
             headCoords.increment(Axis::y);
             headSymbol = Head_Symbol::LookDown;
             
@@ -113,7 +113,7 @@ void Snake::move(const Direction& dir, const Direction& oldDir)
             break;
             
         case Left:
-            cout << "left" << endl;
+//            cout << "left" << endl;
             headCoords.decrement(Axis::x);
             headSymbol = Head_Symbol::LookLeft;
             
@@ -144,7 +144,7 @@ void Snake::move(const Direction& dir, const Direction& oldDir)
             break;
             
         case Right:
-            cout << "right" << endl;
+//            cout << "right" << endl;
             headCoords.increment(Axis::x);
             headSymbol = Head_Symbol::LookRight;
             
@@ -184,9 +184,9 @@ void Snake::updateArray()
     bodyArray.push_back(headCoords);
     bodyArray.erase(bodyArray.begin() + length - 1);
     
-    cout << "bodyArray now be looking like: ";
-    for (const Coords& pos : bodyArray) {
-        cout << pos << ", ";
-    }
-    cout << endl;
+//    cout << "bodyArray now be looking like: ";
+//    for (const Coords& pos : bodyArray) {
+//        cout << pos << ", ";
+//    }
+//    cout << endl;
 }

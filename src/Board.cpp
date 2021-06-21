@@ -15,7 +15,7 @@ Board<X, Y>::Board()
             pixelArray[x][y] = "0";
         }
     }
-    cout << "constructed board of dimension " << width << " by " << height << endl;
+//    cout << "constructed board of dimension " << width << " by " << height << endl;
 }
 
 template <int X, int Y>
@@ -37,7 +37,7 @@ void Board<X, Y>::set(const Coords& pos, const Head_Symbol sym)
     const char* str = GetSymbol(sym);
     pixelArray[pos.get(Axis::x)][pos.get(Axis::y)] = str;
 
-    cout << "set called: " << pos << " to " << str << endl;
+//    cout << "set called: " << pos << " to " << str << endl;
 }
 
 template <int X, int Y>
@@ -46,5 +46,5 @@ void Board<X, Y>::set(const Coords& pos, const Body_Symbol sym)
     const char* str = GetSymbol(sym);
     pixelArray[pos.get(Axis::x)][pos.get(Axis::y)] = str;
     
-    cout << "set called: " << pos << " to " << str << endl;
+//    cout << "set called: " << pos << " to " << str << endl;
 }
