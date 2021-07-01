@@ -12,7 +12,7 @@ Coords::Coords(const Coords& pos)
     :xOrdinate(pos.xOrdinate), yOrdinate(pos.yOrdinate)
 { /*cout << "bro, you just coppied " << pos << endl; */ }
     
-int Coords::get(const Axis& ax) const
+int Coords::Get(const Axis& ax) const
 {
     if(ax == Axis::x)
         return xOrdinate;
@@ -20,7 +20,7 @@ int Coords::get(const Axis& ax) const
         return yOrdinate;
 }
 
-void Coords::increment(const Axis& ax)
+void Coords::Increment(const Axis& ax)
 {
     if(ax == Axis::x)
         xOrdinate++;
@@ -28,7 +28,7 @@ void Coords::increment(const Axis& ax)
         yOrdinate++;
 }
 
-void Coords::decrement(const Axis& ax)
+void Coords::Decrement(const Axis& ax)
 {
     if(ax == Axis::x)
         xOrdinate--;

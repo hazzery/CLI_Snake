@@ -13,10 +13,10 @@ class Coords
     Coords(const int x, const int y);
     Coords(const Coords& pos);
 
-    int get(const Axis& ax) const;
+    int Get(const Axis& ax) const;
 
-    void increment(const Axis& ax);
-    void decrement(const Axis& ax);
+    void Increment(const Axis& ax);
+    void Decrement(const Axis& ax);
     
     friend ostream& operator<<(ostream& os, const Coords& pos);
 };
