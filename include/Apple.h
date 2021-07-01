@@ -1,6 +1,6 @@
 #pragma once
 #include "Coords.h"
-#include "NewSymbol.h"
+#include "Symbol.h"
 
 class Apple
 {
