@@ -8,11 +8,11 @@ using std::cout;
 using std::endl;
 
 Snake::Snake()
-    :length(1), headCoords(Coords()), oldHeadCoords(Coords()), headSymbol(Head_Symbol::LookUp), bodySymbol(Body_Symbol::Vertical)
+    :length(1), headCoords(Coords()), oldHeadCoords(Coords()), headSymbol(Head_Symbol()), bodySymbol(Body_Symbol())
 {/*cout << "constructed empty snake" << endl;*/ }
 
 Snake::Snake(int x, int y)
-    :length(3), headCoords(Coords(((x+1)/2)-1, ((y + 1) / 2) - 1)), oldHeadCoords(Coords()), headSymbol(Head_Symbol::LookUp), bodySymbol(Body_Symbol::Vertical)
+    :length(1), headCoords(Coords(((x+1)/2)-1, ((y + 1) / 2) - 1)), oldHeadCoords(Coords()), headSymbol(HeadUpSym), bodySymbol(Body_Symbol())
 {
     bodyArray.reserve(2);
     bodyArray.push_back(headCoords);
@@ -25,13 +25,13 @@ const Coords& Snake::HeadCoords() const
 { return headCoords; }
 
 const unsigned int Snake::HeadCoord(const Axis& ax) const
-{ return headCoords.get(ax); }
+{ return headCoords.Get(ax); }
 
 const Coords& Snake::OldHeadCoords() const
 { return oldHeadCoords; }
 
 const unsigned int Snake::OldHeadCoord(const Axis& ax) const
-{ return oldHeadCoords.get(ax); }
+{ return oldHeadCoords.Get(ax); }
 
 const Head_Symbol& Snake::HeadSymbol() const
 { return headSymbol; }
@@ -42,7 +42,7 @@ const Body_Symbol& Snake::BodySymbol() const
 const vector<Coords>& Snake::BodyArray() const
 { return bodyArray; }
 
-void Snake::move(const Direction& dir, const Direction& oldDir)
+void Snake::Move(const Direction& dir, const Direction& oldDir)
 {
     oldHeadCoords = headCoords;
     
@@ -52,126 +52,42 @@ void Snake::move(const Direction& dir, const Direction& oldDir)
     {
         case Up:
 //            cout << "up" << endl;
-            headCoords.decrement(Axis::y);
-            headSymbol = Head_Symbol::LookUp;
+            headCoords.Decrement(Axis::y);
+            headSymbol = HeadUpSym;
             
             updateBody();
 
-            switch(oldDir)
-            {
-                case Up:
-                    bodySymbol = Body_Symbol::Vertical;
-                    break;
-                    
-                case Down:
-                    bodySymbol = Body_Symbol::Vertical;
-                    break;
-                    
-                case Left:
-                    bodySymbol = Body_Symbol::BottomLeft;
-                    break;
-                    
-                case Right:
-                    bodySymbol = Body_Symbol::BottomRight;
-                    break;
-                    
-                case None:
-                    bodySymbol = Body_Symbol::Vertical;
-                    break;
-            }
+            bodySymbol = BodySym;
             break;
             
         case Down:
 //            cout << "down" << endl;
-            headCoords.increment(Axis::y);
-            headSymbol = Head_Symbol::LookDown;
+            headCoords.Increment(Axis::y);
+            headSymbol = HeadDownSym;
             
             updateBody();
             
-            switch(oldDir)
-            {
-                case Up:
-                    bodySymbol = Body_Symbol::Vertical;
-                    break;
-                    
-                case Down:
-                    bodySymbol = Body_Symbol::Vertical;
-                    break;
-                    
-                case Left:
-                    bodySymbol = Body_Symbol::TopLeft;
-                    break;
-                    
-                case Right:
-                    bodySymbol = Body_Symbol::TopRight;
-                    break;
-                    
-                case None:
-                    bodySymbol = Body_Symbol::Vertical;
-                    break;
-            }
+            bodySymbol = BodySym;
             break;
             
         case Left:
 //            cout << "left" << endl;
-            headCoords.decrement(Axis::x);
-            headSymbol = Head_Symbol::LookLeft;
+            headCoords.Decrement(Axis::x);
+            headSymbol = HeadLeftSym;
             
             updateBody();
             
-            switch(oldDir)
-            {
-                case Up:
-                    bodySymbol = Body_Symbol::TopRight;
-                    break;
-                    
-                case Down:
-                    bodySymbol = Body_Symbol::BottomRight;
-                    break;
-                    
-                case Left:
-                    bodySymbol = Body_Symbol::Horizontal;
-                    break;
-                    
-                case Right:
-                    bodySymbol = Body_Symbol::Horizontal;
-                    break;
-                    
-                case None:
-                    bodySymbol = Body_Symbol::Horizontal;
-                    break;
-            }
+            bodySymbol = BodySym;
             break;
             
         case Right:
 //            cout << "right" << endl;
-            headCoords.increment(Axis::x);
-            headSymbol = Head_Symbol::LookRight;
+            headCoords.Increment(Axis::x);
+            headSymbol = HeadRightSym;
             
             updateBody();
             
-            switch(oldDir)
-            {
-                case Up:
-                    bodySymbol = Body_Symbol::TopLeft;
-                    break;
-                    
-                case Down:
-                    bodySymbol = Body_Symbol::BottomLeft;
-                    break;
-                    
-                case Left:
-                    bodySymbol = Body_Symbol::Horizontal;
-                    break;
-                    
-                case Right:
-                    bodySymbol = Body_Symbol::Horizontal;
-                    break;
-                    
-                case None:
-                    bodySymbol = Body_Symbol::Horizontal;
-                    break;
-            }
+            bodySymbol = BodySym;
             break;
         case None:
             cout << "Current direction was None :/" << endl;
@@ -187,11 +103,11 @@ void Snake::updateBody()
     
     bodyArray.erase(bodyArray.begin() + length - 1);
     
-//    cout << "bodyArray now be looking like: ";
-//    for (const Coords& pos : bodyArray) {
-//        cout << pos << ", ";
-//    }
-//    cout << endl;
+    //cout << "bodyArray now be looking like: ";
+    //for (const Coords& pos : bodyArray) {
+    //    cout << pos << ", ";
+    //}
+    //cout << endl;
 }
 
 const Coords& Snake::TailCoords() const

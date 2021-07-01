@@ -12,7 +12,7 @@ public:
     Snake();
     Snake(const int x, const int y);
     
-    void move(const Direction& dir, const Direction& oldDir);
+    void Move(const Direction& dir, const Direction& oldDir);
     
     const unsigned int Length() const;
     
