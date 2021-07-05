@@ -12,7 +12,7 @@ Board<X, Y>::Board()
     {
         for (int x = 0; x < Width; x++)
         {
-            pixelArray[x][y] = '0';
+            pixelArray[x][y] = '_';
         }
     }
 //    cout << "constructed board of dimension " << width << " by " << height << endl;
@@ -43,25 +43,28 @@ void Board<X, Y>::Set(const Coords& pos, const Symbol& sym)
 template <int X, int Y>
 int Board<X, Y>::Get(const Coords& pos) const
 {
+    if (pos.Get(Axis::x) < 0 || pos.Get(Axis::y) < 0)//Wall
+        return -1;
+
     char chr = pixelArray[pos.Get(Axis::x)][pos.Get(Axis::y)];
     
-    if (chr == '^' || chr == '<' || chr == '>' || chr == 'V')
+    if (chr == '^' || chr == '<' || chr == '>' || chr == 'V')//Snake head
         return 1;
     
-    else if (chr == '"')
+    else if (chr == '"')//Snake body
         return 2;
     
-    else if (chr == '@')
+    else if (chr == '@')//Apple
         return 3;
     
-    else
+    else //Empty space
         return 0;
 }
 
 template <int X, int Y>
 void Board<X, Y>::Clear(const Coords& pos)
 {
-    pixelArray[pos.Get(Axis::x)][pos.Get(Axis::y)] = '0';
+    pixelArray[pos.Get(Axis::x)][pos.Get(Axis::y)] = '_';
     
     //    cout << "Cleared: " << pos << endl;
 }
