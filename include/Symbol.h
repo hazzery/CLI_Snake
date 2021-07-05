@@ -48,3 +48,4 @@ extern Head_Symbol HeadRightSym;
 extern Body_Symbol BodySym;
 
 extern Misc_Symbol AppleSym;
+extern Misc_Symbol BlankSym;

@@ -20,3 +20,4 @@ Head_Symbol HeadRightSym('>');
 Body_Symbol BodySym('"');
 
 Misc_Symbol AppleSym('@');
+Misc_Symbol BlankSym('_');
