@@ -18,6 +18,7 @@ public:
     Symbol(char sym);
     Symbol(const Symbol& sym);
 
+public:
     char Get() const;
 
 private:
@@ -27,19 +28,16 @@ private:
 class Head_Symbol : public Symbol
 {
     using Symbol::Symbol;
-    using Symbol::Get;
 };
 
 class Body_Symbol : public Symbol
 {
     using Symbol::Symbol;
-    using Symbol::Get;
 };
 
 class Misc_Symbol : public Symbol
 {
     using Symbol::Symbol;
-    using Symbol::Get;
 };
 
 extern Head_Symbol HeadUpSym;
