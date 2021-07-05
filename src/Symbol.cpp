@@ -11,3 +11,12 @@ Symbol::Symbol(const Symbol& sym)
 
 char Symbol::Get() const
 { return icon; }
+
+Head_Symbol HeadUpSym('^');
+Head_Symbol HeadDownSym('V');
+Head_Symbol HeadLeftSym('<');
+Head_Symbol HeadRightSym('>');
+
+Body_Symbol BodySym('"');
+
+Misc_Symbol AppleSym('@');
