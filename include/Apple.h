@@ -7,6 +7,10 @@ class Apple
 public:
     Apple();
     Apple(const Coords& pos);
+
+    void New();
+
+public:
     const Coords& Pos();
     const Misc_Symbol& Sym();
 
