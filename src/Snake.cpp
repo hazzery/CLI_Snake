@@ -1,6 +1,7 @@
 #include "../include/Direction.h"
 #include "../include/Coords.h"
 #include "../include/Symbol.h"
+#include "../include/Apple.h"
 #include "../include/Snake.h"
 #include "../include/Axis.h"
 #include <iostream>
@@ -17,30 +18,6 @@ Snake::Snake(int x, int y)
     bodyArray.reserve(2);
     bodyArray.push_back(headCoords);
 }
-
-const unsigned int Snake::Length() const
-{ return length; }
-
-const Coords& Snake::HeadCoords() const
-{ return headCoords; }
-
-const unsigned int Snake::HeadCoord(const Axis& ax) const
-{ return headCoords.Get(ax); }
-
-const Coords& Snake::OldHeadCoords() const
-{ return oldHeadCoords; }
-
-const unsigned int Snake::OldHeadCoord(const Axis& ax) const
-{ return oldHeadCoords.Get(ax); }
-
-const Head_Symbol& Snake::HeadSymbol() const
-{ return headSymbol; }
-
-const Body_Symbol& Snake::BodySymbol() const
-{ return bodySymbol; }
-
-const vector<Coords>& Snake::BodyArray() const
-{ return bodyArray; }
 
 void Snake::Move(const Direction& dir, const Direction& oldDir)
 {
@@ -95,6 +72,40 @@ void Snake::Move(const Direction& dir, const Direction& oldDir)
     }
 }
 
+void Snake::Eat(Apple& appl)
+{
+    length++;
+
+    appl.New();
+}
+
+const unsigned int Snake::Length() const
+{ return length; }
+
+const Coords& Snake::HeadCoords() const
+{ return headCoords; }
+
+const unsigned int Snake::HeadCoord(const Axis& ax) const
+{ return headCoords.Get(ax); }
+
+const Coords& Snake::OldHeadCoords() const
+{ return oldHeadCoords; }
+
+const unsigned int Snake::OldHeadCoord(const Axis& ax) const
+{ return oldHeadCoords.Get(ax); }
+
+const Head_Symbol& Snake::HeadSymbol() const
+{ return headSymbol; }
+
+const Body_Symbol& Snake::BodySymbol() const
+{ return bodySymbol; }
+
+const vector<Coords>& Snake::BodyArray() const
+{ return bodyArray; }
+
+const Coords& Snake::TailCoords() const
+{ return tailCoords; }
+
 void Snake::updateBody()
 {
     bodyArray.push_back(headCoords);
@@ -110,5 +121,3 @@ void Snake::updateBody()
     //cout << endl;
 }
 
-const Coords& Snake::TailCoords() const
-{ return tailCoords; }

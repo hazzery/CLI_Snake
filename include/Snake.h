@@ -1,8 +1,9 @@
 #pragma once
 
-#include "Coords.h"
 #include "Direction.h"
+#include "Coords.h"
 #include "Symbol.h"
+#include "Apple.h"
 #include <vector>
 using std::vector;
 
@@ -13,7 +14,10 @@ public:
     Snake(const int x, const int y);
     
     void Move(const Direction& dir, const Direction& oldDir);
-    
+
+    void Eat(Apple& appl);
+
+public:
     const unsigned int Length() const;
     
     const Coords& HeadCoords() const;
