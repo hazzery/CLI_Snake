@@ -21,10 +21,10 @@ public:
     const unsigned int Length() const;
     
     const Coords& HeadCoords() const;
-    const unsigned int HeadCoord(const Axis& ax) const;
+    const int HeadCoord(const Axis& ax) const;
 
     const Coords& OldHeadCoords() const;
-    const unsigned int OldHeadCoord(const Axis& ax) const;
+    const int OldHeadCoord(const Axis& ax) const;
     
     const Head_Symbol& HeadSymbol() const;
     const Body_Symbol& BodySymbol() const;
