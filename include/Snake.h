@@ -17,6 +17,8 @@ public:
 
     void Eat(Apple& appl);
 
+    void updateBody();
+
 public:
     const unsigned int Length() const;
     
@@ -47,6 +49,4 @@ private:
     
     Coords tailCoords;
     
-private:
-    void updateBody();
 };
