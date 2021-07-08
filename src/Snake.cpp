@@ -32,9 +32,6 @@ void Snake::Move(const Direction& dir, const Direction& oldDir)
             headCoords.Decrement(Axis::y);
             headSymbol = HeadUpSym;
             
-            updateBody();
-
-            bodySymbol = BodySym;
             break;
             
         case Down:
@@ -42,9 +39,6 @@ void Snake::Move(const Direction& dir, const Direction& oldDir)
             headCoords.Increment(Axis::y);
             headSymbol = HeadDownSym;
             
-            updateBody();
-            
-            bodySymbol = BodySym;
             break;
             
         case Left:
@@ -52,9 +46,6 @@ void Snake::Move(const Direction& dir, const Direction& oldDir)
             headCoords.Decrement(Axis::x);
             headSymbol = HeadLeftSym;
             
-            updateBody();
-            
-            bodySymbol = BodySym;
             break;
             
         case Right:
@@ -62,9 +53,6 @@ void Snake::Move(const Direction& dir, const Direction& oldDir)
             headCoords.Increment(Axis::x);
             headSymbol = HeadRightSym;
             
-            updateBody();
-            
-            bodySymbol = BodySym;
             break;
         case None:
             cout << "Current direction was None :/" << endl;
