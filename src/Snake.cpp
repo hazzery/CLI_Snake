@@ -9,11 +9,11 @@ using std::cout;
 using std::endl;
 
 Snake::Snake()
-    :length(1), headCoords(Coords()), oldHeadCoords(Coords()), headSymbol(Head_Symbol()), bodySymbol(Body_Symbol())
+    :length(1), headCoords(Coords()), oldHeadCoords(Coords()), headSymbol(Head_Symbol()), bodySymbol(BodySym)
 {/*cout << "constructed empty snake" << endl;*/ }
 
 Snake::Snake(int x, int y)
-    :length(1), headCoords(Coords(((x+1)/2)-1, ((y + 1) / 2) - 1)), oldHeadCoords(Coords()), headSymbol(HeadUpSym), bodySymbol(Body_Symbol())
+    :length(1), headCoords(Coords(((x+1)/2)-1, ((y + 1) / 2) - 1)), oldHeadCoords(Coords()), headSymbol(HeadUpSym), bodySymbol(BodySym)
 {
     bodyArray.reserve(2);
     bodyArray.push_back(headCoords);
