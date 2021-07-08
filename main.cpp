@@ -74,6 +74,9 @@ int main()
         board.Clear(snake.TailCoords());
 
         board.Set(apple.Pos(), apple.Sym());
+
+        cout << "\x1B[3J\x1B[H";//Clear console
+
         board.Print();
 
         loops++;
