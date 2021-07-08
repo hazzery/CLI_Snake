@@ -85,13 +85,13 @@ const unsigned int Snake::Length() const
 const Coords& Snake::HeadCoords() const
 { return headCoords; }
 
-const unsigned int Snake::HeadCoord(const Axis& ax) const
+const int Snake::HeadCoord(const Axis& ax) const
 { return headCoords.Get(ax); }
 
 const Coords& Snake::OldHeadCoords() const
 { return oldHeadCoords; }
 
-const unsigned int Snake::OldHeadCoord(const Axis& ax) const
+const int Snake::OldHeadCoord(const Axis& ax) const
 { return oldHeadCoords.Get(ax); }
 
 const Head_Symbol& Snake::HeadSymbol() const
