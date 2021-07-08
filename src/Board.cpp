@@ -43,22 +43,28 @@ void Board<X, Y>::Set(const Coords& pos, const Symbol& sym)
 template <int X, int Y>
 int Board<X, Y>::Get(const Coords& pos) const
 {
-    if (pos.Get(Axis::x) < 0 || pos.Get(Axis::y) < 0)//Wall
+    int x = pos.Get(Axis::x);
+    int y = pos.Get(Axis::y);
+
+    if (x < 0 || x > Width - 1 || y < 0 || y > Height - 1)//Wall
         return -1;
 
-    char chr = pixelArray[pos.Get(Axis::x)][pos.Get(Axis::y)];
+    char chr = pixelArray[x][y];//Gets symbol at given coords
     
-    if (chr == HeadUpSym.Get() || chr == HeadLeftSym.Get() || chr == HeadRightSym.Get() || chr == HeadDownSym.Get())//Snake head
-        return 1;
+    if (chr == BlankSym.Get())//Empty space
+        return 0;
     
     else if (chr == BodySym.Get())//Snake body
-        return 2;
+        return 1;
     
     else if (chr == AppleSym.Get())//Apple
+        return 2;
+    
+    else if (chr == HeadUpSym.Get() || chr == HeadLeftSym.Get() || chr == HeadRightSym.Get() || chr == HeadDownSym.Get())//Snake head
         return 3;
     
-    else //Empty space
-        return 0;
+    else//Error, there is somthing in pixelArray that shouldn't be there
+        return chr;
 }
 
 template <int X, int Y>

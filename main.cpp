@@ -18,7 +18,7 @@ int main()
     
     Board<width, height> board;
     Snake snake(width, height);
-    Apple apple({1, 1});
+    Apple apple({6, 4});
     
     Direction dir = None;
     Direction oldDir = None;
@@ -31,7 +31,7 @@ int main()
     board.Print();
     
     int loops = 0;
-    while (loops < 30)
+    while (loops < 100)
     {
         char keyboardInput;
         cin >> keyboardInput;
@@ -39,22 +39,25 @@ int main()
         snake.Move(dir, oldDir);
         oldDir = dir;
         
-        //To do: find out why initializing snake length to 3 breaks program :/
+        //TODO: find out why initializing snake length to 3 breaks program :/
+        //TODO: Make Game auto move withough keyboard input.
 
         switch (board.Get(snake.HeadCoords()))
         {
             case -1:
                 gameOver();
+                cout << "Get good! That was a wall, try not doing that next time " << endl;
                 return 3;
 
             case 0:
                 break;
 
-            case 2:
+            case 1:
                 gameOver();
+                cout << "Ha! Retard. You crashed into yourself" << endl;
                 return 2;
 
-            case 3:
+            case 2:
                 snake.Eat(apple);
                 break;
         }
@@ -70,6 +73,11 @@ int main()
 
         loops++;
     }
+}
+
+void gameOver()
+{
+    cout << "Game!" << endl;
 }
 
 /*
