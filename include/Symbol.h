@@ -11,23 +11,41 @@
 //»
 //¥
 
-enum class Head_Symbol
+class Symbol
 {
-    LookUp,
-    LookLeft,
-    LookRight,
-    LookDown
+public:
+    Symbol();
+    Symbol(char sym);
+    Symbol(const Symbol& sym);
+
+public:
+    char Get() const;
+
+private:
+    char icon;
 };
 
-enum class Body_Symbol
+class Head_Symbol : public Symbol
 {
-    TopLeft,
-    TopRight,
-    BottomLeft,
-    BottomRight,
-    Horizontal,
-    Vertical
+    using Symbol::Symbol;
 };
 
-extern const char* GetSymbol(const Head_Symbol sym);
-extern const char* GetSymbol(const Body_Symbol sym);
+class Body_Symbol : public Symbol
+{
+    using Symbol::Symbol;
+};
+
+class Misc_Symbol : public Symbol
+{
+    using Symbol::Symbol;
+};
+
+extern Head_Symbol HeadUpSym;
+extern Head_Symbol HeadDownSym;
+extern Head_Symbol HeadLeftSym;
+extern Head_Symbol HeadRightSym;
+
+extern Body_Symbol BodySym;
+
+extern Misc_Symbol AppleSym;
+extern Misc_Symbol BlankSym;

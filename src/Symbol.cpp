@@ -1,61 +1,23 @@
 #include "../include/Symbol.h"
 
-//╔
-//╗
-//╚
-//╝
-//═
-//║
-//^
-//«
-//»
-//¥
+Symbol::Symbol()
+	:icon(' ') {}
 
-//⩓
-//⩔
-//⪡
-//⪢
+Symbol::Symbol(char sym)
+	: icon(sym) {}
 
-const char* GetSymbol(const Head_Symbol sym)
-{
-    switch(sym)
-    {
-       case Head_Symbol::LookUp:
-            return "⩓";
-            
-        case Head_Symbol::LookLeft:
-            return "⪡";
-            
-        case Head_Symbol::LookRight:
-            return "⪢";
-            
-        case Head_Symbol::LookDown:
-            return "⩔";
-    }
+Symbol::Symbol(const Symbol& sym)
+	: icon(sym.icon) {}
 
-    return "You done goofed my friend, this should have been a Head_Symbol, but now its an unfunny error message!";
-}
-const char* GetSymbol(const Body_Symbol sym)
-{
-    switch(sym)
-    {
-        case Body_Symbol::TopLeft:
-            return "╔";
-            
-        case Body_Symbol::TopRight:
-            return "╗";
-            
-        case Body_Symbol::BottomLeft:
-            return "╚";
-            
-        case Body_Symbol::BottomRight:
-            return "╝";
-            
-        case Body_Symbol::Horizontal:
-            return "═";
-            
-        case Body_Symbol::Vertical:
-            return "║";
-    }
-    return "You done goofed my friend, this should have been a Body_Symbol, but now its an unfunny error message!";
-}
+char Symbol::Get() const
+{ return icon; }
+
+Head_Symbol HeadUpSym('^');
+Head_Symbol HeadDownSym('V');
+Head_Symbol HeadLeftSym('<');
+Head_Symbol HeadRightSym('>');
+
+Body_Symbol BodySym('"');
+
+Misc_Symbol AppleSym('@');
+Misc_Symbol BlankSym('_');

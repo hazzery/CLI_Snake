@@ -11,8 +11,7 @@ public:
 
     void Print() const;
 
-    void Set(const Coords& pos, const Head_Symbol sym);
-    void Set(const Coords& pos, const Body_Symbol sym);
+    void Set(const Coords& pos, const Symbol& sym);
 
     int Get(const Coords& pos) const;
     
@@ -23,5 +22,5 @@ public:
     static int constexpr Height = Y;
 
 private:
-    const char* pixelArray[X][Y];
+    char pixelArray[X][Y];
 };

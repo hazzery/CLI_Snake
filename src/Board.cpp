@@ -12,7 +12,7 @@ Board<X, Y>::Board()
     {
         for (int x = 0; x < Width; x++)
         {
-            pixelArray[x][y] = "0";
+            pixelArray[x][y] = BlankSym.Get();
         }
     }
 //    cout << "constructed board of dimension " << width << " by " << height << endl;
@@ -32,45 +32,39 @@ void Board<X, Y>::Print() const
 }
 
 template <int X, int Y>
-void Board<X, Y>::Set(const Coords& pos, const Head_Symbol sym)
+void Board<X, Y>::Set(const Coords& pos, const Symbol& sym)
 {
-    const char* str = GetSymbol(sym);
-    pixelArray[pos.get(Axis::x)][pos.get(Axis::y)] = str;
+    char chr = sym.Get();
+    pixelArray[pos.Get(Axis::x)][pos.Get(Axis::y)] = chr;
 
 //    cout << "set called: " << pos << " to " << str << endl;
 }
 
 template <int X, int Y>
-void Board<X, Y>::Set(const Coords& pos, const Body_Symbol sym)
-{
-    const char* str = GetSymbol(sym);
-    pixelArray[pos.get(Axis::x)][pos.get(Axis::y)] = str;
-    
-//    cout << "Set : " << pos << " to " << str << endl;
-}
-
-template <int X, int Y>
 int Board<X, Y>::Get(const Coords& pos) const
 {
-    const char * str = pixelArray[pos.get(Axis::x)][pos.get(Axis::y)];
+    if (pos.Get(Axis::x) < 0 || pos.Get(Axis::y) < 0)//Wall
+        return -1;
+
+    char chr = pixelArray[pos.Get(Axis::x)][pos.Get(Axis::y)];
     
-    if (!(strcmp(str, "^") || strcmp(str, "«") || strcmp(str, "»") || strcmp(str, "¥")))
+    if (chr == HeadUpSym.Get() || chr == HeadLeftSym.Get() || chr == HeadRightSym.Get() || chr == HeadDownSym.Get())//Snake head
         return 1;
     
-    else if (!(strcmp(str, "╔") || strcmp(str, "╗") || strcmp(str, "╚") || strcmp(str, "╝") || strcmp(str, "═") || strcmp(str, "║")))
+    else if (chr == BodySym.Get())//Snake body
         return 2;
     
-    else if (!strcmp(str, "@"))
+    else if (chr == AppleSym.Get())//Apple
         return 3;
     
-    else
+    else //Empty space
         return 0;
 }
 
 template <int X, int Y>
 void Board<X, Y>::Clear(const Coords& pos)
 {
-    pixelArray[pos.get(Axis::x)][pos.get(Axis::y)] = "0";
+    pixelArray[pos.Get(Axis::x)][pos.Get(Axis::y)] = BlankSym.Get();
     
     //    cout << "Cleared: " << pos << endl;
 }

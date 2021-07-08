@@ -1,16 +1,20 @@
 #pragma once
 #include "Coords.h"
-#include "NewSymbol.h"
+#include "Symbol.h"
 
 class Apple
 {
 public:
     Apple();
     Apple(const Coords& pos);
+
+    void New();
+
+public:
     const Coords& Pos();
-    const Symbol& Sym();
+    const Misc_Symbol& Sym();
 
 private:
     Coords coords;
-    Symbol sym;
+    Misc_Symbol sym;
 };
