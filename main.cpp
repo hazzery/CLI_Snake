@@ -6,10 +6,14 @@
 #include "include/Apple.h"
 #include "src/Board.cpp"
 #include <iostream>
+#include <chrono>
+#include <thread>
 using std::string;
+using std::this_thread::sleep_for;
+using std::chrono::milliseconds;
 using std::cout;
-using std::cin;
 using std::endl;
+using std::cin;
 
 int main()
 {
@@ -30,12 +34,13 @@ int main()
     board.Set(apple.Pos(), apple.Sym());
     board.Print();
     
+    char keyboardInput;
+    cin >> keyboardInput;
+    dir = (Direction)keyboardInput;
+    
     int loops = 0;
     while (loops < 100)
     {
-        char keyboardInput;
-        cin >> keyboardInput;
-        dir = (Direction)keyboardInput;
         snake.Move(dir, oldDir);
         oldDir = dir;
         
@@ -72,6 +77,8 @@ int main()
         board.Print();
 
         loops++;
+
+        sleep_for(milliseconds(250));
     }
 }
 
