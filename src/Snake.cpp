@@ -63,7 +63,10 @@ void Snake::Move(const Direction& dir, const Direction& oldDir)
 void Snake::Eat(Apple& appl)
 {
     length++;
+    bodyArray.reserve(bodyArray.capacity() + 1);
+    bodyArray.emplace_back(-1, -1);
 
+    cout << "length increased to: " << length << endl;
     appl.New();
 }
 
