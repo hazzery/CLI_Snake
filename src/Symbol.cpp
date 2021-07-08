@@ -11,21 +11,26 @@
 //»
 //¥
 
+//⩓
+//⩔
+//⪡
+//⪢
+
 const char* GetSymbol(const Head_Symbol sym)
 {
     switch(sym)
     {
        case Head_Symbol::LookUp:
-            return "^";
+            return "⩓";
             
         case Head_Symbol::LookLeft:
-            return "«";
+            return "⪡";
             
         case Head_Symbol::LookRight:
-            return "»";
+            return "⪢";
             
         case Head_Symbol::LookDown:
-            return "¥";
+            return "⩔";
     }
 
     return "You done goofed my friend, this should have been a Head_Symbol, but now its an unfunny error message!";
