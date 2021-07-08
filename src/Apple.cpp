@@ -1,10 +1,10 @@
 #include "../include/Apple.h"
 
 Apple::Apple()
-    :_pos(Coords()) {}
+    :coords(Coords()) {}
 
 Apple::Apple(const Coords& pos)
-    :_pos(pos) {}
+    : coords(pos) {}
 
 const Coords& Apple::Pos()
-{ return _pos; }
+{ return coords; }
