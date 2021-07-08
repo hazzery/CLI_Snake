@@ -108,11 +108,11 @@ const Coords& Snake::TailCoords() const
 
 void Snake::updateBody()
 {
-    bodyArray.push_back(headCoords);
+    bodyArray.insert(bodyArray.begin(), headCoords);
+
+    tailCoords = bodyArray[length];
     
-    tailCoords = bodyArray[length - 1];
-    
-    bodyArray.erase(bodyArray.begin() + length - 1);
+    bodyArray.erase(bodyArray.begin() + length);
     
     //cout << "bodyArray now be looking like: ";
     //for (const Coords& pos : bodyArray) {
