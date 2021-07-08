@@ -67,6 +67,16 @@ void Snake::Eat(Apple& appl)
     appl.New();
 }
 
+void Snake::UpdateBody()
+{
+    bodyArray.insert(bodyArray.begin(), headCoords);
+
+    tailCoords = bodyArray[length];
+
+    bodyArray.erase(bodyArray.begin() + length);
+    
+}
+
 const unsigned int Snake::Length() const
 { return length; }
 
@@ -93,19 +103,3 @@ const vector<Coords>& Snake::BodyArray() const
 
 const Coords& Snake::TailCoords() const
 { return tailCoords; }
-
-void Snake::updateBody()
-{
-    bodyArray.insert(bodyArray.begin(), headCoords);
-
-    tailCoords = bodyArray[length];
-    
-    bodyArray.erase(bodyArray.begin() + length);
-    
-    //cout << "bodyArray now be looking like: ";
-    //for (const Coords& pos : bodyArray) {
-    //    cout << pos << ", ";
-    //}
-    //cout << endl;
-}
-

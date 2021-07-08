@@ -17,7 +17,7 @@ public:
 
     void Eat(Apple& appl);
 
-    void updateBody();
+    void UpdateBody();
 
 public:
     const unsigned int Length() const;
