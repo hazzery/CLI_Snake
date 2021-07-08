@@ -79,6 +79,7 @@ int main()
  check if new head coords are occupied by apple/wall/body
  case apple
     snake.length++
+    new apple
     continue
  
  case wall
