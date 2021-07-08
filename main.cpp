@@ -23,26 +23,51 @@ int main()
     Direction dir = None;
     Direction oldDir = None;
 
+    void gameOver();
+
+
     board.Set(snake.HeadCoords(), snake.HeadSymbol());
+    board.Set(apple.Pos(), apple.Sym());
     board.Print();
     
     int loops = 0;
-    while (loops < 15)
+    while (loops < 30)
     {
         char keyboardInput;
         cin >> keyboardInput;
         dir = (Direction)keyboardInput;
-        snake.move(dir, oldDir);
+        snake.Move(dir, oldDir);
         oldDir = dir;
         
-        //To do: make apples do somthing
-        //find out why initializing snake length to 3 breaks program :/
-        
+        //To do: find out why initializing snake length to 3 breaks program :/
+
+        switch (board.Get(snake.HeadCoords()))
+        {
+            case -1:
+                gameOver();
+                return 3;
+
+            case 0:
+                break;
+
+            case 2:
+                gameOver();
+                return 2;
+
+            case 3:
+                snake.Eat(apple);
+                break;
+        }
+
+        snake.UpdateBody();
+
         board.Set(snake.HeadCoords(), snake.HeadSymbol());
         board.Set(snake.OldHeadCoords(), snake.BodySymbol());
         board.Clear(snake.TailCoords());
+
+        board.Set(apple.Pos(), apple.Sym());
         board.Print();
-        
+
         loops++;
     }
 }
