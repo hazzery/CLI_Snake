@@ -4,8 +4,12 @@
 #include "include/Board.h"
 #include "include/Snake.h"
 #include "include/Apple.h"
+#include "include/Game.h"
 #include "src/Board.cpp"
+#include "src/Game.cpp"
+#include "Windows.h"
 #include <iostream>
+#include <conio.h>
 #include <chrono>
 #include <thread>
 using std::string;
@@ -14,7 +18,7 @@ using std::chrono::milliseconds;
 using std::cout;
 using std::endl;
 using std::cin;
-
+/*
 int main()
 {
     static constexpr int const width = 21;
@@ -29,6 +33,9 @@ int main()
 
     void gameOver();
 
+    cout << "Hello!" << endl << "Welcome to CLI_Snake" << endl << endl << "Please press enter" << endl;
+    cin.get();
+    cout << "\x1B[3J\x1B[H";//Clear console
 
     board.Set(snake.HeadCoords(), snake.HeadSymbol());
     board.Set(apple.Pos(), apple.Sym());
@@ -39,7 +46,7 @@ int main()
     dir = (Direction)keyboardInput;
 
     int loops = 0;
-    while (loops < 100)
+    while (snake.Length() < 100)
     {
         snake.Move(dir, oldDir);
         oldDir = dir;
@@ -81,8 +88,21 @@ int main()
 
         loops++;
 
-        sleep_for(milliseconds(250));
+        sleep_for(milliseconds(150));
+
+        if (_kbhit()) // If key hit
+        {
+            keyboardInput = _getch();
+            dir = (Direction)keyboardInput;
+        }
+
     }
+}
+*/
+
+int main()
+{
+    CLI_Snake<21, 11> game;
 }
 
 void gameOver()

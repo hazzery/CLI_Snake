@@ -66,7 +66,7 @@ void Snake::Eat(Apple& appl)
     bodyArray.reserve(bodyArray.capacity() + 1);
     bodyArray.emplace_back(-1, -1);
 
-    cout << "length increased to: " << length << endl;
+    //cout << "length increased to: " << length << endl;
     appl.New();
 }
 
