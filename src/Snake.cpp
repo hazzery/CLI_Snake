@@ -27,34 +27,34 @@ void Snake::Move(const Direction& dir, const Direction& oldDir)
 
     switch(dir)
     {
-        case Up:
+        case Direction::Up:
 //            cout << "up" << endl;
             headCoords.Decrement(Axis::y);
             headSymbol = HeadUpSym;
             
             break;
             
-        case Down:
+        case Direction::Down:
 //            cout << "down" << endl;
             headCoords.Increment(Axis::y);
             headSymbol = HeadDownSym;
             
             break;
             
-        case Left:
+        case Direction::Left:
 //            cout << "left" << endl;
             headCoords.Decrement(Axis::x);
             headSymbol = HeadLeftSym;
             
             break;
             
-        case Right:
+        case Direction::Right:
 //            cout << "right" << endl;
             headCoords.Increment(Axis::x);
             headSymbol = HeadRightSym;
             
             break;
-        case None:
+        case Direction::None:
             cout << "Current direction was None :/" << endl;
             break;
     }

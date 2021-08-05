@@ -7,7 +7,7 @@ using std::cin;
 
 template <int X, int Y>
 CLI_Snake<X, Y>::CLI_Snake()
-    :snake(X, Y), apple({ std::rand() % X, std::rand() % Y }), dir(None), oldDir(None), keyboardInput(0)
+    :snake(X, Y), apple({ std::rand() % X, std::rand() % Y }), dir(Direction::None), oldDir(Direction::None), keyboardInput(0)
 {
 	board.Set(snake.HeadCoords(), snake.HeadSymbol());
 	board.Set(apple.Pos(), apple.Sym());
@@ -58,16 +58,16 @@ bool CLI_Snake<X, Y>::Game()
             switch (keyboardInput)
             {
             case 119:
-                dir = Up;
+                dir = Direction::Up;
                 break;
             case 115:
-                dir = Down;
+                dir = Direction::Down;
                 break;
             case 97:
-                dir = Left;
+                dir = Direction::Left;
                 break;
             case 100:
-                dir = Right;
+                dir = Direction::Right;
                 break;
             default:
                 break;
