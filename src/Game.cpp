@@ -50,30 +50,28 @@ bool CLI_Snake<X, Y>::Game()
 
         cout << "\x1B[1J\x1B[H"; //Clear console
 
-        board.Print();
+        board.Print(); //Display board in console
 
         if (_kbhit()) //If the keyboard is being pressed
         {
             keyboardInput = _getch();
-            //switch (keyboardInput)
-            //{
-            //case 119:
-            //    dir = Up;
-            //    break;
-            //case 115:
-            //    dir = Down;
-            //    break;
-            //case 97:
-            //    dir = Left;
-            //    break;
-            //case 100:
-            //    dir = Right;
-            //    break;
-            //default:
-            //    dir = oldDir;
-            //    break;
-            //}
-            dir = (Direction)keyboardInput;
+            switch (keyboardInput)
+            {
+            case 119:
+                dir = Up;
+                break;
+            case 115:
+                dir = Down;
+                break;
+            case 97:
+                dir = Left;
+                break;
+            case 100:
+                dir = Right;
+                break;
+            default:
+                break;
+            }
         }
 
         return true;
