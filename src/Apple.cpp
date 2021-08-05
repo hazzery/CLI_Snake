@@ -4,11 +4,11 @@ Apple::Apple()
     :coords(Coords()), sym(AppleSym) {}
 
 Apple::Apple(const Coords& pos)
-    : coords(pos), sym(AppleSym) {}
+    :coords(pos), sym(AppleSym) {}
 
 void Apple::New()
 {
-    coords = Coords({ std::rand() % 19, std::rand() % 11 });
+    coords = Coords({ std::rand() % 21, std::rand() % 11 });
 }
 
 const Coords& Apple::Pos()
