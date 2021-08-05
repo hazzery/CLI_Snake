@@ -12,6 +12,8 @@ class CLI_Snake
 public:
     CLI_Snake();
 
+    bool Game();
+
 private:
     Board<X, Y> board;
     Snake snake;

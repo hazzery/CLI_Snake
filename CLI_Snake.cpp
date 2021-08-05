@@ -7,12 +7,10 @@
 #include "include/Game.h"
 #include "src/Board.cpp"
 #include "src/Game.cpp"
-#include "Windows.h"
 #include <iostream>
 #include <conio.h>
 #include <chrono>
 #include <thread>
-using std::string;
 using std::this_thread::sleep_for;
 using std::chrono::milliseconds;
 using std::cout;
@@ -102,12 +100,23 @@ int main()
 
 int main()
 {
-    CLI_Snake<21, 11> game;
-}
+    cout << "       Hello!" << endl << "Welcome to CLI_Snake" << endl << endl << " Please press enter" << endl;
+    cin.get();
+    cout << "\x3B[1J\x1B[H";//Clear console
 
-void gameOver()
-{
-    cout << "Game!" << endl;
+    while (true)
+    {
+        CLI_Snake<21, 11> game;
+
+        while(game.Game())
+            sleep_for(milliseconds(150));
+
+        cout << "Press enter to play again" << endl;
+        cin.get();
+
+        cout << "\x1B[1J\x1B[H";//Clear console
+
+    }
 }
 
 /*
