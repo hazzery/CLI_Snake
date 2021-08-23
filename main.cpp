@@ -24,14 +24,14 @@ int main()
     Snake snake(width, height);
     Apple apple({6, 4});
     
-    Direction dir = None;
-    Direction oldDir = None;
+    Direction dir = Direction::None;
+    Direction oldDir = Direction::None;
 
     void gameOver();
 
 
     board.Set(snake.HeadCoords(), snake.HeadSymbol());
-    board.Set(apple.Pos(), apple.Sym());
+   board.Set(apple.Pos(), apple.Sym());
     board.Print();
     
     char keyboardInput;
@@ -63,7 +63,7 @@ int main()
                 return 2;
 
             case 2:
-                snake.Eat(apple);
+               snake.Eat(apple);
                 break;
         }
 
@@ -73,7 +73,7 @@ int main()
         board.Set(snake.OldHeadCoords(), snake.BodySymbol());
         board.Clear(snake.TailCoords());
 
-        board.Set(apple.Pos(), apple.Sym());
+       board.Set(apple.Pos(), apple.Sym());
 
         cout << "\x1B[3J\x1B[H";//Clear console
 
@@ -82,6 +82,25 @@ int main()
         loops++;
 
         sleep_for(milliseconds(250));
+        
+        char keystroke;
+        cin >> keystroke;
+        switch(keystroke)
+        {
+        case 'w':
+            dir = Direction::Up;
+            break;
+        case 'a':
+            dir = Direction::Left;
+            break;
+        case 's':
+            dir = Direction::Down;
+            break;
+        case 'd':
+            dir = Direction::Right;
+            break;
+        }
+        
     }
 }
 
