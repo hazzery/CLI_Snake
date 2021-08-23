@@ -31,7 +31,7 @@ int main()
 
 
     board.Set(snake.HeadCoords(), snake.HeadSymbol());
-   board.Set(apple.Pos(), apple.Sym());
+    board.Set(apple.Pos(), apple.Sym());
     board.Print();
     
     char keyboardInput;
@@ -63,7 +63,7 @@ int main()
                 return 2;
 
             case 2:
-               snake.Eat(apple);
+                snake.Eat(apple);
                 break;
         }
 
@@ -73,7 +73,7 @@ int main()
         board.Set(snake.OldHeadCoords(), snake.BodySymbol());
         board.Clear(snake.TailCoords());
 
-       board.Set(apple.Pos(), apple.Sym());
+        board.Set(apple.Pos(), apple.Sym());
 
         cout << "\x1B[3J\x1B[H";//Clear console
 
