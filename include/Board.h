@@ -17,8 +17,8 @@ public:
     
     void Clear(const Coords& pos);
     
-    constexpr uint8_t Width() const;
-    constexpr uint8_t Height() const;
+    static constexpr uint8_t Width();
+    static constexpr uint8_t Height();
 
 private:
     Symbol array[width][height];
