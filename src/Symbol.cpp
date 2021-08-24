@@ -27,7 +27,16 @@ bool operator==(const Symbol& sym1, const Symbol& sym2)
 {
     return (sym1.icon == sym2.icon);
 }
-Body_Symbol BodySym('"');
 
-Misc_Symbol AppleSym('@');
-Misc_Symbol BlankSym('_');
+namespace Symbols
+{
+    Head_Symbol HeadUp('^');
+    Head_Symbol HeadDown('V');
+    Head_Symbol HeadLeft('<');
+    Head_Symbol HeadRight('>');
+    
+    Body_Symbol Body('\u0444');
+    
+    Misc_Symbol Apple('@');
+    Misc_Symbol Blank('_');
+};

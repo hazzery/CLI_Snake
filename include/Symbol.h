@@ -1,5 +1,5 @@
 #pragma once
-//};
+#include <iostream>
 //╔
 //╗
 //╚
@@ -33,6 +33,8 @@ protected:
 class Head_Symbol : public Symbol
 {
     using Symbol::Symbol;
+    //I just realized that this probably means that I could instanciate a headsymbol by passing a body symbol.
+    //If that is the case, the copy construcotr should probably be private and each subclass should have its own copy constructor
 };
 
 class Body_Symbol : public Symbol
@@ -45,12 +47,16 @@ class Misc_Symbol : public Symbol
     using Symbol::Symbol;
 };
 
-extern Head_Symbol HeadUpSym;
-extern Head_Symbol HeadDownSym;
-extern Head_Symbol HeadLeftSym;
-extern Head_Symbol HeadRightSym;
 
-extern Body_Symbol BodySym;
-
-extern Misc_Symbol AppleSym;
-extern Misc_Symbol BlankSym;
+namespace Symbols
+{
+    extern Head_Symbol HeadUp;
+    extern Head_Symbol HeadDown;
+    extern Head_Symbol HeadLeft;
+    extern Head_Symbol HeadRight;
+    
+    extern Body_Symbol Body;
+    
+    extern Misc_Symbol Apple;
+    extern Misc_Symbol Blank;
+}
