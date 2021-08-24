@@ -53,11 +53,11 @@ int8_t Board<width, height>::Get(const Coords& pos) const
     if (sym == Symbols::Blank)//Empty space
         return 0;
     
-    else if (sym == Symbols::Body)//Snake body
-        return 1;
-    
     else if (sym == Symbols::Apple)//Apple
         return 2;
+    
+    else if (sym == Symbols::TopLeft || sym == Symbols::TopRight || sym == Symbols::BottomLeft || sym == Symbols::BottomRight || sym == Symbols::Horizontal || sym == Symbols::Vertical)//Snake body
+        return 1;
     
     else if (sym == Symbols::HeadUp || sym == Symbols::HeadLeft || sym == Symbols::HeadRight || sym == Symbols::HeadDown)//Snake head
         return 3;

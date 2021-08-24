@@ -20,7 +20,7 @@ std::ostream& operator<<(std::ostream& os, const Symbol& sym)
 
 Symbol::operator int() const
 {
-    return (int)(char)icon;
+    return (int)icon[0];
 }
 
 bool operator==(const Symbol& sym1, const Symbol& sym2)
@@ -42,6 +42,6 @@ namespace Symbols
     Body_Symbol Horizontal("═");
     Body_Symbol Vertical("║");
     
-    Misc_Symbol Apple("🍎");
+    Misc_Symbol Apple("");
     Misc_Symbol Blank("_");
 };

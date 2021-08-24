@@ -22,7 +22,6 @@ Snake::Snake(int x, int y)
 void Snake::Move(const Direction& dir, const Direction& oldDir)
 {
     oldHeadCoords = headCoords;
-    
 //    cout << "move snake ";
 
     switch(dir)
@@ -31,28 +30,112 @@ void Snake::Move(const Direction& dir, const Direction& oldDir)
 //            cout << "up" << endl;
             headCoords.Decrement(Axis::y);
             headSymbol = Symbols::HeadUp;
-            
+            switch(oldDir)
+            {
+            case Up:
+                bodySymbol = Symbols::Vertical;
+                break;
+                
+            case Down:
+                bodySymbol = Symbols::Vertical;
+                break;
+                
+            case Left:
+                bodySymbol = Symbols::BottomLeft;
+                break;
+                
+            case Right:
+                bodySymbol = Symbols::BottomRight;
+                break;
+                
+            case None:
+                bodySymbol = Symbols::Vertical;
+                break;
+            }
             break;
             
         case Down:
 //            cout << "down" << endl;
             headCoords.Increment(Axis::y);
             headSymbol = Symbols::HeadDown;
-            
+            switch(oldDir)
+            {
+            case Up:
+                bodySymbol = Symbols::Vertical;
+                break;
+                
+            case Down:
+                bodySymbol = Symbols::Vertical;
+                break;
+                
+            case Left:
+                bodySymbol = Symbols::TopLeft;
+                break;
+                
+            case Right:
+                bodySymbol = Symbols::TopRight;
+                break;
+                
+            case None:
+                bodySymbol = Symbols::Vertical;
+                break;
+            }
             break;
             
         case Left:
 //            cout << "left" << endl;
             headCoords.Decrement(Axis::x);
             headSymbol = Symbols::HeadLeft;
-            
+            switch(oldDir)
+            {
+            case Up:
+                bodySymbol = Symbols::TopRight;
+                break;
+                
+            case Down:
+                bodySymbol = Symbols::BottomRight;
+                break;
+                
+            case Left:
+                bodySymbol = Symbols::Horizontal;
+                break;
+                
+            case Right:
+                bodySymbol = Symbols::Horizontal;
+                break;
+                
+            case None:
+                bodySymbol = Symbols::Horizontal;
+                break;
+            }
             break;
             
         case Right:
 //            cout << "right" << endl;
             headCoords.Increment(Axis::x);
             headSymbol = Symbols::HeadRight;
-            
+            switch(oldDir)
+            {
+            case Up:
+                bodySymbol = Symbols::TopLeft;
+                break;
+                
+            case Down:
+                bodySymbol = Symbols::BottomLeft;
+                break;
+                
+            case Left:
+                bodySymbol = Symbols::Horizontal;
+                break;
+                
+            case Right:
+                bodySymbol = Symbols::Horizontal;
+                break;
+                
+            case None:
+                bodySymbol = Symbols::Horizontal;
+                break;
+            }
             break;
         case None:
             cout << "Current direction was None :/" << endl;
@@ -66,7 +149,7 @@ void Snake::Eat(Apple& appl)
     bodyArray.reserve(bodyArray.capacity() + 1);
     bodyArray.emplace_back(-1, -1);
 
-    cout << "length increased to: " << length << endl;
+//    cout << "length increased to: " << length << endl;
     appl.New();
 }
 
