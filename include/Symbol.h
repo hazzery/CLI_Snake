@@ -24,7 +24,7 @@ public:
     friend std::ostream& operator<<(std::ostream& os, const Symbol& sym);
     friend bool operator==(const Symbol& sym1, const Symbol& sym2);
     
-    explicit operator int() const;
+    operator int() const;
 
 protected:
     char icon;
