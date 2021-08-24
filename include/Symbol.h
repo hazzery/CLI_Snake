@@ -55,7 +55,12 @@ namespace Symbols
     extern Head_Symbol HeadLeft;
     extern Head_Symbol HeadRight;
     
-    extern Body_Symbol Body;
+    extern Body_Symbol TopLeft;
+    extern Body_Symbol TopRight;
+    extern Body_Symbol BottomLeft;
+    extern Body_Symbol BottomRight;
+    extern Body_Symbol Horizontal;
+    extern Body_Symbol Vertical;
     
     extern Misc_Symbol Apple;
     extern Misc_Symbol Blank;
