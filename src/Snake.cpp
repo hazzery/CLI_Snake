@@ -9,11 +9,11 @@ using std::cout;
 using std::endl;
 
 Snake::Snake()
-    :length(1), headCoords(Coords()), oldHeadCoords(Coords()), headSymbol(Head_Symbol()), bodySymbol(BodySym)
+    :length(1), headCoords(Coords()), oldHeadCoords(Coords()), headSymbol(Head_Symbol()), bodySymbol(Symbols::Body)
 {/*cout << "constructed empty snake" << endl;*/ }
 
 Snake::Snake(int x, int y)
-    :length(1), headCoords(Coords(((x+1)/2)-1, ((y + 1) / 2) - 1)), oldHeadCoords(Coords()), headSymbol(HeadUpSym), bodySymbol(BodySym)
+    :length(1), headCoords(Coords(((x+1)/2)-1, ((y + 1) / 2) - 1)), oldHeadCoords(Coords()), headSymbol(Symbols::HeadUp), bodySymbol(Symbols::Body)
 {
     bodyArray.reserve(2);
     bodyArray.push_back(headCoords);
@@ -30,28 +30,28 @@ void Snake::Move(const Direction& dir, const Direction& oldDir)
         case Up:
 //            cout << "up" << endl;
             headCoords.Decrement(Axis::y);
-            headSymbol = HeadUpSym;
+            headSymbol = Symbols::HeadUp;
             
             break;
             
         case Down:
 //            cout << "down" << endl;
             headCoords.Increment(Axis::y);
-            headSymbol = HeadDownSym;
+            headSymbol = Symbols::HeadDown;
             
             break;
             
         case Left:
 //            cout << "left" << endl;
             headCoords.Decrement(Axis::x);
-            headSymbol = HeadLeftSym;
+            headSymbol = Symbols::HeadLeft;
             
             break;
             
         case Right:
 //            cout << "right" << endl;
             headCoords.Increment(Axis::x);
-            headSymbol = HeadRightSym;
+            headSymbol = Symbols::HeadRight;
             
             break;
         case None:

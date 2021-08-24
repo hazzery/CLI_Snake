@@ -36,7 +36,7 @@ void Coords::Decrement(const Axis& ax)
         yOrdinate--;
 }
 
-ostream& operator<<(ostream& os, const Coords& pos)
+std::ostream& operator<<(std::ostream& os, const Coords& pos)
 {
     os << "(" << pos.xOrdinate << ", " << pos.yOrdinate << ")";
     return os;

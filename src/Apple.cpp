@@ -1,10 +1,10 @@
 #include "../include/Apple.h"
 
 Apple::Apple()
-    :coords(Coords()), sym(AppleSym) {}
+    :coords(Coords()), sym(Symbols::Apple) {}
 
 Apple::Apple(const Coords& pos)
-    : coords(pos), sym(AppleSym) {}
+    : coords(pos), sym(Symbols::Apple) {}
 
 void Apple::New()
 {
