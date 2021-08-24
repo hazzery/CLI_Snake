@@ -35,7 +35,7 @@ namespace Symbols
     Head_Symbol HeadLeft('<');
     Head_Symbol HeadRight('>');
     
-    Body_Symbol Body('\u0444');
+    Body_Symbol Body('"');
     
     Misc_Symbol Apple('@');
     Misc_Symbol Blank('_');
