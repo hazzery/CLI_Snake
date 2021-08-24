@@ -5,72 +5,71 @@
 using std::cout;
 using std::endl;
 
-template <int X, int Y>
-Board<X, Y>::Board()
+template <uint8_t width, uint8_t height>
+Board<width, height>::Board()
 {
-    for (int y = 0; y < Height; y++)
+    for (int y = 0; y < height; y++)
     {
-        for (int x = 0; x < Width; x++)
+        for (int x = 0; x < width; x++)
         {
-            pixelArray[x][y] = BlankSym.Get();
+            array[x][y] = Symbols::Blank;
         }
     }
 //    cout << "constructed board of dimension " << width << " by " << height << endl;
 }
 
-template <int X, int Y>
-void Board<X, Y>::Print() const
+template <uint8_t width, uint8_t height>
+void Board<width, height>::Print() const
 {
-    for (int y = 0; y < Height; y++)
+    for (int y = 0; y < height; y++)
     {
-        for (int x = 0; x < Width; x++)
+        for (int x = 0; x < width; x++)
         {
-            cout << pixelArray[x][y];
+            cout << array[x][y];
         }
         cout << endl;
     }
 }
 
-template <int X, int Y>
-void Board<X, Y>::Set(const Coords& pos, const Symbol& sym)
+template <uint8_t width, uint8_t height>
+void Board<width, height>::Set(const Coords& pos, const Symbol& sym)
 {
-    char chr = sym.Get();
-    pixelArray[pos.Get(Axis::x)][pos.Get(Axis::y)] = chr;
+    array[pos.Get(Axis::x)][pos.Get(Axis::y)] = sym;
 
 //    cout << "set called: " << pos << " to " << str << endl;
 }
 
-template <int X, int Y>
-int Board<X, Y>::Get(const Coords& pos) const
+template <uint8_t width, uint8_t height>
+int8_t Board<width, height>::Get(const Coords& pos) const
 {
     int x = pos.Get(Axis::x);
     int y = pos.Get(Axis::y);
 
-    if (x < 0 || x > Width - 1 || y < 0 || y > Height - 1)//Wall
+    if (x < 0 || x > width - 1 || y < 0 || y > height - 1)//Wall
         return -1;
 
-    char chr = pixelArray[x][y];//Gets symbol at given coords
+    Symbol sym = array[x][y];//Gets symbol at given coords
     
-    if (chr == BlankSym.Get())//Empty space
+    if (sym == Symbols::Blank)//Empty space
         return 0;
     
-    else if (chr == BodySym.Get())//Snake body
+    else if (sym == Symbols::Body)//Snake body
         return 1;
     
-    else if (chr == AppleSym.Get())//Apple
+    else if (sym == Symbols::Apple)//Apple
         return 2;
     
-    else if (chr == HeadUpSym.Get() || chr == HeadLeftSym.Get() || chr == HeadRightSym.Get() || chr == HeadDownSym.Get())//Snake head
+    else if (sym == Symbols::HeadUp || sym == Symbols::HeadLeft || sym == Symbols::HeadRight || sym == Symbols::HeadDown)//Snake head
         return 3;
     
-    else//Error, there is somthing in pixelArray that shouldn't be there
-        return chr;
+    else//Error, there is somthing in array that shouldn't be there
+        return (int)sym;
 }
 
-template <int X, int Y>
-void Board<X, Y>::Clear(const Coords& pos)
+template <uint8_t width, uint8_t height>
+void Board<width, height>::Clear(const Coords& pos)
 {
-    pixelArray[pos.Get(Axis::x)][pos.Get(Axis::y)] = BlankSym.Get();
+    array[pos.Get(Axis::x)][pos.Get(Axis::y)] = Symbols::Blank;
     
     //    cout << "Cleared: " << pos << endl;
 }

@@ -3,7 +3,7 @@
 #include "Coords.h"
 #include "Symbol.h"
 
-template<int X, int Y>
+template<uint8_t width, uint8_t height>
 class Board
 {
 public:
@@ -13,14 +13,13 @@ public:
 
     void Set(const Coords& pos, const Symbol& sym);
 
-    int Get(const Coords& pos) const;
+    int8_t Get(const Coords& pos) const;
     
     void Clear(const Coords& pos);
-
-public:
-    static int constexpr Width = X;
-    static int constexpr Height = Y;
+    
+    uint8_t Width();
+    uint8_t Height();
 
 private:
-    char pixelArray[X][Y];
+    Symbol array[width][height];
 };
