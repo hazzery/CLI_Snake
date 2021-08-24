@@ -75,9 +75,9 @@ void Board<width, height>::Clear(const Coords& pos)
 }
 
 template <uint8_t width, uint8_t height>
-constexpr uint8_t Board<width, height>::Width()
+constexpr uint8_t Board<width, height>::Width() const
 { return width; }
 
 template <uint8_t width, uint8_t height>
-constexpr uint8_t Board<width, height>::Height()
+constexpr uint8_t Board<width, height>::Height() const
 { return height; }
