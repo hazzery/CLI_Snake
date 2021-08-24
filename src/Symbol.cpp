@@ -1,15 +1,15 @@
 #include "../include/Symbol.h"
 
 Symbol::Symbol()
-	:icon(' ') {}
+	:icon(" ") {}
 
-Symbol::Symbol(char sym)
+Symbol::Symbol(const char * sym)
 	: icon(sym) {}
 
 Symbol::Symbol(const Symbol& sym)
 	: icon(sym.icon) {}
 
-char Symbol::Get() const
+const char * Symbol::Get() const
 { return icon; }
 
 std::ostream& operator<<(std::ostream& os, const Symbol& sym)
@@ -20,7 +20,7 @@ std::ostream& operator<<(std::ostream& os, const Symbol& sym)
 
 Symbol::operator int() const
 {
-    return (int)icon;
+    return (int)(char)icon;
 }
 
 bool operator==(const Symbol& sym1, const Symbol& sym2)
@@ -30,13 +30,18 @@ bool operator==(const Symbol& sym1, const Symbol& sym2)
 
 namespace Symbols
 {
-    Head_Symbol HeadUp('^');
-    Head_Symbol HeadDown('V');
-    Head_Symbol HeadLeft('<');
-    Head_Symbol HeadRight('>');
+    Head_Symbol HeadUp("⩓");
+    Head_Symbol HeadDown("⩔");
+    Head_Symbol HeadLeft("⪡");
+    Head_Symbol HeadRight("⪢");
     
-    Body_Symbol Body('"');
+    Body_Symbol TopLeft("╔");
+    Body_Symbol TopRight("╗");
+    Body_Symbol BottomLeft("╚");
+    Body_Symbol BottomRight("╝");
+    Body_Symbol Horizontal("═");
+    Body_Symbol Vertical("║");
     
-    Misc_Symbol Apple('@');
-    Misc_Symbol Blank('_');
+    Misc_Symbol Apple("🍎");
+    Misc_Symbol Blank("_");
 };

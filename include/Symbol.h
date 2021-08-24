@@ -6,20 +6,20 @@
 //╝
 //═
 //║
-//^
-//«
-//»
-//¥
+//⩓
+//⩔
+//⪡
+//⪢
 
 class Symbol
 {
 public:
     Symbol();
-    Symbol(char sym);
+    Symbol(const char * sym);
     Symbol(const Symbol& sym);
 
 public:
-    char Get() const;
+    const char * Get() const;
     
     friend std::ostream& operator<<(std::ostream& os, const Symbol& sym);
     friend bool operator==(const Symbol& sym1, const Symbol& sym2);
@@ -27,7 +27,7 @@ public:
     operator int() const;
 
 protected:
-    char icon;
+    const char * icon;
 };
 
 class Head_Symbol : public Symbol
