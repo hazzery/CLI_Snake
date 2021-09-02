@@ -27,7 +27,7 @@ public:
     operator int() const;
 
 protected:
-    const char * icon;
+    const char * character;
 };
 
 class Head_Symbol : public Symbol
