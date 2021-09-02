@@ -8,7 +8,7 @@ Apple::Apple(const Coords& pos)
 
 void Apple::New()
 {
-    coords = Coords({ std::rand() % 19, std::rand() % 11 });
+    coords = Coords({ std::rand() % 21, std::rand() % 11 });
 }
 
 const Coords& Apple::Pos()
