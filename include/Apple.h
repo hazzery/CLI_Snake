@@ -6,15 +6,15 @@ class Apple
 {
 public:
     Apple();
-    Apple(const Coords& pos);
+    Apple(const Coords& _pos);
 
-    void New();
+    void RandomisePosition(uint8_t _maxWidth, uint8_t _maxHeight);
 
 public:
     const Coords& Pos();
     const Misc_Symbol& Sym();
 
 private:
-    Coords coords;
+    Coords pos;
     Misc_Symbol sym;
 };

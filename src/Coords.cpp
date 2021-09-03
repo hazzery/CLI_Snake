@@ -3,41 +3,41 @@ using std::cout;
 using std::endl;
 
 Coords::Coords()
-	:xOrdinate(-1), yOrdinate(-1) {}
+	:xOrdinate(0), yOrdinate(0) {}
 
-Coords::Coords(const int x, const int y)
-	:xOrdinate(x), yOrdinate(y) {}
+Coords::Coords(const uint8_t _x, const uint8_t _y)
+	:xOrdinate(_x), yOrdinate(_y) {}
 
-Coords::Coords(const Coords& pos)
-    :xOrdinate(pos.xOrdinate), yOrdinate(pos.yOrdinate)
+Coords::Coords(const Coords& _pos)
+    :xOrdinate(_pos.xOrdinate), yOrdinate(_pos.yOrdinate)
 { /*cout << "bro, you just coppied " << pos << endl; */ }
     
-int Coords::Get(const Axis& ax) const
+uint8_t Coords::Get(const Axis& _axis) const
 {
-    if(ax == Axis::x)
+    if(_axis == Axis::X)
         return xOrdinate;
     else
         return yOrdinate;
 }
 
-void Coords::Increment(const Axis& ax)
+void Coords::Increment(const Axis& _axis)
 {
-    if(ax == Axis::x)
+    if(_axis == Axis::X)
         xOrdinate++;
     else
         yOrdinate++;
 }
 
-void Coords::Decrement(const Axis& ax)
+void Coords::Decrement(const Axis& _axis)
 {
-    if(ax == Axis::x)
+    if(_axis == Axis::X)
         xOrdinate--;
     else
         yOrdinate--;
 }
 
-std::ostream& operator<<(std::ostream& os, const Coords& pos)
+std::ostream& operator<<(std::ostream& _os, const Coords& _pos)
 {
-    os << "(" << pos.xOrdinate << ", " << pos.yOrdinate << ")";
-    return os;
+    _os << "(" << _pos.xOrdinate << ", " << _pos.yOrdinate << ")";
+    return _os;
 }

@@ -1,2 +1,2 @@
 #pragma once
-enum class Axis { x, y };
+enum class Axis { X, Y };

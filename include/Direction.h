@@ -1,4 +1,5 @@
 #pragma once
+
 enum Direction : int
 {
     Up = 119,   //'w' in ASCII is 119

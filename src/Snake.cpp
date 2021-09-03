@@ -12,25 +12,25 @@ Snake::Snake()
     :length(1), headCoords(Coords()), oldHeadCoords(Coords()), headSymbol(Head_Symbol()), bodySymbol(Symbols::Vertical)
 {/*cout << "constructed empty snake" << endl;*/ }
 
-Snake::Snake(int x, int y)
-    :length(1), headCoords(Coords(((x+1)/2)-1, ((y + 1) / 2) - 1)), oldHeadCoords(Coords()), headSymbol(Symbols::HeadUp), bodySymbol(Symbols::Vertical)
+Snake::Snake(uint8_t _x, uint8_t _y)
+    :length(1), headCoords(Coords(((_x+1)/2)-1, ((_y + 1) / 2) - 1)), oldHeadCoords(Coords()), headSymbol(Symbols::HeadUp), bodySymbol(Symbols::Vertical)
 {
     bodyArray.reserve(2);
     bodyArray.push_back(headCoords);
 }
 
-void Snake::Move(const Direction& dir, const Direction& oldDir)
+void Snake::Move(const Direction& _dir, const Direction& _oldDir)
 {
     oldHeadCoords = headCoords;
 //    cout << "move snake ";
 
-    switch(dir)
+    switch(_dir)
     {
         case Up:
 //            cout << "up" << endl;
-            headCoords.Decrement(Axis::y);
+            headCoords.Decrement(Axis::Y);
             headSymbol = Symbols::HeadUp;
-            switch(oldDir)
+            switch(_oldDir)
             {
             case Up:
                 bodySymbol = Symbols::Vertical;
@@ -56,9 +56,9 @@ void Snake::Move(const Direction& dir, const Direction& oldDir)
             
         case Down:
 //            cout << "down" << endl;
-            headCoords.Increment(Axis::y);
+            headCoords.Increment(Axis::Y);
             headSymbol = Symbols::HeadDown;
-            switch(oldDir)
+            switch(_oldDir)
             {
             case Up:
                 bodySymbol = Symbols::Vertical;
@@ -84,9 +84,9 @@ void Snake::Move(const Direction& dir, const Direction& oldDir)
             
         case Left:
 //            cout << "left" << endl;
-            headCoords.Decrement(Axis::x);
+            headCoords.Decrement(Axis::X);
             headSymbol = Symbols::HeadLeft;
-            switch(oldDir)
+            switch(_oldDir)
             {
             case Up:
                 bodySymbol = Symbols::TopRight;
@@ -112,9 +112,9 @@ void Snake::Move(const Direction& dir, const Direction& oldDir)
             
         case Right:
 //            cout << "right" << endl;
-            headCoords.Increment(Axis::x);
+            headCoords.Increment(Axis::X);
             headSymbol = Symbols::HeadRight;
-            switch(oldDir)
+            switch(_oldDir)
             {
             case Up:
                 bodySymbol = Symbols::TopLeft;
@@ -143,14 +143,14 @@ void Snake::Move(const Direction& dir, const Direction& oldDir)
     }
 }
 
-void Snake::Eat(Apple& appl)
+void Snake::Eat(Apple& _apple)
 {
     length++;
     bodyArray.reserve(bodyArray.capacity() + 1);
-    bodyArray.emplace_back(-1, -1);
+    bodyArray.emplace_back(0, 0);
 
 //    cout << "length increased to: " << length << endl;
-    appl.New();
+    _apple.RandomisePosition(21, 11);//Fuck, that wasn't supposed to happen :/
 }
 
 void Snake::UpdateBody()
@@ -163,20 +163,14 @@ void Snake::UpdateBody()
     
 }
 
-const unsigned int Snake::Length() const
+const unsigned short Snake::Length() const
 { return length; }
 
 const Coords& Snake::HeadCoords() const
 { return headCoords; }
 
-const int Snake::HeadCoord(const Axis& ax) const
-{ return headCoords.Get(ax); }
-
 const Coords& Snake::OldHeadCoords() const
 { return oldHeadCoords; }
-
-const int Snake::OldHeadCoord(const Axis& ax) const
-{ return oldHeadCoords.Get(ax); }
 
 const Head_Symbol& Snake::HeadSymbol() const
 { return headSymbol; }
@@ -184,7 +178,7 @@ const Head_Symbol& Snake::HeadSymbol() const
 const Body_Symbol& Snake::BodySymbol() const
 { return bodySymbol; }
 
-const vector<Coords>& Snake::BodyArray() const
+const std::vector<Coords>& Snake::BodyArray() const
 { return bodyArray; }
 
 const Coords& Snake::TailCoords() const

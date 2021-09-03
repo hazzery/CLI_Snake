@@ -4,18 +4,18 @@
 
 class Coords
 {
-  private:
-    int xOrdinate, yOrdinate;
-    
   public:
     Coords();
-    Coords(const int x, const int y);
-    Coords(const Coords& pos);
+    Coords(const uint8_t _x, const uint8_t _y);
+    Coords(const Coords& _pos);
 
-    int Get(const Axis& ax) const;
+    uint8_t Get(const Axis& _axis) const;
 
-    void Increment(const Axis& ax);
-    void Decrement(const Axis& ax);
+    void Increment(const Axis& _axis);
+    void Decrement(const Axis& _axis);
     
-    friend std::ostream& operator<<(std::ostream& os, const Coords& pos);
+    friend std::ostream& operator<<(std::ostream& _os, const Coords& _pos);
+    
+private:
+    uint8_t xOrdinate, yOrdinate;
 };
