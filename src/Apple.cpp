@@ -1,18 +1,18 @@
 #include "../include/Apple.h"
 
 Apple::Apple()
-    :coords(Coords()), sym(Symbols::Apple) {}
+    :pos(Coords()), sym(Symbols::Apple) {}
 
-Apple::Apple(const Coords& pos)
-    : coords(pos), sym(Symbols::Apple) {}
+Apple::Apple(const Coords& _pos)
+    : pos(_pos), sym(Symbols::Apple) {}
 
-void Apple::New()
+void Apple::RandomisePosition(uint8_t _maxWidth, uint8_t _maxHeight)
 {
-    coords = Coords({ std::rand() % 21, std::rand() % 11 });
+    pos = Coords(std::rand() % _maxWidth, std::rand() % _maxHeight);
 }
 
 const Coords& Apple::Pos()
-{ return coords; }
+{ return pos; }
 
 const Misc_Symbol& Apple::Sym()
 { return sym; }

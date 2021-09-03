@@ -5,39 +5,35 @@
 #include "Symbol.h"
 #include "Apple.h"
 #include <vector>
-using std::vector;
 
 class Snake
 {
 public:
     Snake();
-    Snake(const int x, const int y);
+    Snake(const uint8_t _x, const uint8_t _y);
     
-    void Move(const Direction& dir, const Direction& oldDir);
+    void Move(const Direction& _dir, const Direction& _oldDir);
 
-    void Eat(Apple& appl);
+    void Eat(Apple& _apple);
 
     void UpdateBody();
 
 public:
-    const unsigned int Length() const;
+    const unsigned short Length() const;
     
     const Coords& HeadCoords() const;
-    const int HeadCoord(const Axis& ax) const;
-
     const Coords& OldHeadCoords() const;
-    const int OldHeadCoord(const Axis& ax) const;
     
     const Head_Symbol& HeadSymbol() const;
     const Body_Symbol& BodySymbol() const;
 
-    const vector<Coords>& BodyArray() const;
+    const std::vector<Coords>& BodyArray() const;
     
     const Coords& TailCoords() const;
     
     
 private:
-    int length;
+    unsigned short length;
     
     Coords headCoords;
     Coords oldHeadCoords;
@@ -45,7 +41,7 @@ private:
     Head_Symbol headSymbol;
     Body_Symbol bodySymbol;
     
-    vector<Coords> bodyArray;
+    std::vector<Coords> bodyArray;
     
     Coords tailCoords;
     

@@ -3,19 +3,19 @@
 Symbol::Symbol()
 	:character(" ") {}
 
-Symbol::Symbol(const char * sym)
-	: character(sym) {}
+Symbol::Symbol(const char * _char)
+	: character(_char) {}
 
-Symbol::Symbol(const Symbol& sym)
-	: character(sym.character) {}
+Symbol::Symbol(const Symbol& _sym)
+	: character(_sym.character) {}
 
 const char * Symbol::Get() const
 { return character; }
 
-std::ostream& operator<<(std::ostream& os, const Symbol& sym)
+std::ostream& operator<<(std::ostream& _os, const Symbol& _sym)
 {
-    os << sym.character;
-    return os;
+    _os << _sym.character;
+    return _os;
 }
 
 Symbol::operator int() const
@@ -23,9 +23,9 @@ Symbol::operator int() const
     return (int)character[0];
 }
 
-bool operator==(const Symbol& sym1, const Symbol& sym2)
+bool operator==(const Symbol& _sym1, const Symbol& _sym2)
 {
-    return (sym1.character == sym2.character);
+    return (_sym1.character == _sym2.character);
 }
 
 namespace Symbols

@@ -5,25 +5,25 @@
 using std::cout;
 using std::endl;
 
-template <uint8_t width, uint8_t height>
-Board<width, height>::Board()
+template <uint8_t _width, uint8_t _height>
+Board<_width, _height>::Board()
 {
-    for (int y = 0; y < height; y++)
+    for (int y = 0; y < _height; y++)
     {
-        for (int x = 0; x < width; x++)
+        for (int x = 0; x < _width; x++)
         {
             array[x][y] = Symbols::Blank;
         }
     }
-//    cout << "constructed board of dimension " << width << " by " << height << endl;
+//    cout << "constructed board of dimension " << _width << " by " << _height << endl;
 }
 
-template <uint8_t width, uint8_t height>
-void Board<width, height>::Print() const
+template <uint8_t _width, uint8_t _height>
+void Board<_width, _height>::Print() const
 {
-    for (int y = 0; y < height; y++)
+    for (int y = 0; y < _height; y++)
     {
-        for (int x = 0; x < width; x++)
+        for (int x = 0; x < _width; x++)
         {
             cout << array[x][y];
         }
@@ -31,21 +31,21 @@ void Board<width, height>::Print() const
     }
 }
 
-template <uint8_t width, uint8_t height>
-void Board<width, height>::Set(const Coords& pos, const Symbol& sym)
+template <uint8_t _width, uint8_t _height>
+void Board<_width, _height>::Set(const Coords& pos, const Symbol& sym)
 {
-    array[pos.Get(Axis::x)][pos.Get(Axis::y)] = sym;
+    array[pos.Get(Axis::X)][pos.Get(Axis::Y)] = sym;
 
 //    cout << "set called: " << pos << " to " << str << endl;
 }
 
-template <uint8_t width, uint8_t height>
-int8_t Board<width, height>::Get(const Coords& pos) const
+template <uint8_t _width, uint8_t _height>
+int8_t Board<_width, _height>::Get(const Coords& pos) const
 {
-    int x = pos.Get(Axis::x);
-    int y = pos.Get(Axis::y);
+    int x = pos.Get(Axis::X);
+    int y = pos.Get(Axis::Y);
 
-    if (x < 0 || x > width - 1 || y < 0 || y > height - 1)//Wall
+    if (x < 0 || x > _width - 1 || y < 0 || y > _height - 1)//Wall
         return -1;
 
     Symbol sym = array[x][y];//Gets symbol at given coords
@@ -66,18 +66,18 @@ int8_t Board<width, height>::Get(const Coords& pos) const
         return (int)sym;
 }
 
-template <uint8_t width, uint8_t height>
-void Board<width, height>::Clear(const Coords& pos)
+template <uint8_t _width, uint8_t _height>
+void Board<_width, _height>::Clear(const Coords& pos)
 {
-    array[pos.Get(Axis::x)][pos.Get(Axis::y)] = Symbols::Blank;
+    array[pos.Get(Axis::X)][pos.Get(Axis::Y)] = Symbols::Blank;
     
     //    cout << "Cleared: " << pos << endl;
 }
 
-template <uint8_t width, uint8_t height>
-constexpr uint8_t Board<width, height>::Width()
-{ return width; }
+template <uint8_t _width, uint8_t _height>
+constexpr uint8_t Board<_width, _height>::Width()
+{ return _width; }
 
-template <uint8_t width, uint8_t height>
-constexpr uint8_t Board<width, height>::Height()
-{ return height; }
+template <uint8_t _width, uint8_t _height>
+constexpr uint8_t Board<_width, _height>::Height()
+{ return _height; }

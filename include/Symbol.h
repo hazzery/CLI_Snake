@@ -15,14 +15,14 @@ class Symbol
 {
 public:
     Symbol();
-    Symbol(const char * sym);
-    Symbol(const Symbol& sym);
+    Symbol(const char * _char);
+    Symbol(const Symbol& _sym);
 
 public:
     const char * Get() const;
     
-    friend std::ostream& operator<<(std::ostream& os, const Symbol& sym);
-    friend bool operator==(const Symbol& sym1, const Symbol& sym2);
+    friend std::ostream& operator<<(std::ostream& _os, const Symbol& _sym);
+    friend bool operator==(const Symbol& _sym1, const Symbol& _sym2);
     
     operator int() const;
 
