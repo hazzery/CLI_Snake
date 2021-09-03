@@ -8,7 +8,7 @@ Apple::Apple(const Coords& _pos)
 
 void Apple::RandomisePosition(uint8_t _maxWidth, uint8_t _maxHeight)
 {
-    pos = Coords(std::rand() % _maxWidth, std::rand() % _maxHeight);
+    pos = Coords( std::rand() % _maxWidth, std::rand() % _maxHeight );
 }
 
 const Coords& Apple::Pos()
