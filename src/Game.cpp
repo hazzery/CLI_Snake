@@ -25,14 +25,14 @@ bool CLI_Snake<X, Y>::Game()
         switch (board.Get(snake.HeadCoords())) //Check what is currently at the co-ordinates the snake just moved to
         {
         case -1: //Snake hit a wall
-            cout << "Get good! That was a wall, try not doing that next time " << endl;
+            cout << "That was a wall, try not doing that next time " << endl;
             return false;
 
         case 0: //Empty space
             break;
 
         case 1: //Snake crashed into itself
-            cout << "Ha! Retard. You crashed into yourself" << endl;
+            cout << "Ha! You crashed into yourself" << endl;
             return false;
 
         case 2: //Found an apple
@@ -57,16 +57,16 @@ bool CLI_Snake<X, Y>::Game()
             keyboardInput = _getch();
             switch (keyboardInput)
             {
-            case 119:
+            case 119:// 'w' in ASCII
                 dir = Direction::Up;
                 break;
-            case 115:
+            case 115:// 's'
                 dir = Direction::Down;
                 break;
-            case 97:
+            case 97:// 'a'
                 dir = Direction::Left;
                 break;
-            case 100:
+            case 100:// 'd'
                 dir = Direction::Right;
                 break;
             default:
