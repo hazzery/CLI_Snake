@@ -11,14 +11,32 @@
 //»
 //¥
 
+/**
+ * @brief Class to abstract symbols from their underlying type (char)
+**/
 class Symbol
 {
 public:
-    Symbol();
+    /**
+     * @brief Creates a new Sybol object with specified value
+     * 
+     * @param sym The char which the Symbol uses to display  
+    **/
     Symbol(char sym);
+
+    /**
+     * @brief Symbol copy constructor
+     * 
+     * @param sym symbol to be coppied
+    **/
     Symbol(const Symbol& sym);
 
 public:
+    /**
+     * @brief Gets the underlying char
+     * 
+     * @return The underlying char for the Symbol 
+    **/
     char Get() const;
 
 private:

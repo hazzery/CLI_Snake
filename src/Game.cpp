@@ -9,11 +9,11 @@ template <int X, int Y>
 CLI_Snake<X, Y>::CLI_Snake()
     :snake(X, Y), apple({ std::rand() % X, std::rand() % Y }), dir(Direction::None), oldDir(Direction::None), keyboardInput(0)
 {
-	board.Set(snake.HeadCoords(), snake.HeadSymbol());
-	board.Set(apple.Pos(), apple.Sym());
-	board.Print();
+	board.Set(snake.HeadCoords(), snake.HeadSymbol());  //Places the snake's head on the centre of the board
+	board.Set(apple.Pos(), apple.Sym());    //Places the apple at a random position on the board
+	board.Print();  //Shows the board on the console
 
-    while (!_kbhit());
+    while (!_kbhit());  //Waits for the user to press the keyboard
 }
 
 template <int X, int Y>
