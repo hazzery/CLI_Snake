@@ -92,7 +92,5 @@ short CLI_Snake<_width, _height>::Game()
                 dir = Direction::Right;
                 break;
         }
-        
-        return true;
     }
 }
