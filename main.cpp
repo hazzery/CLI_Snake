@@ -65,8 +65,7 @@ int main()
         //Game Loop/////////////////////////////////////////////////////////////////////////////////////////////////
     
         cout << "Use 'w' to move the snake up" << endl
-            << "'a' to move the snake left" << endl
-            << "'s' to move the snake down" << endl
+            << "'a' for left, 'd' for right" << endl
             << "and 'd' to move the snake down" << endl;
         
         CLI_Snake<21, 11> game(difficulty);
