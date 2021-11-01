@@ -100,7 +100,14 @@ int main()
 
 int main()
 {
-    cout << "       Hello!" << endl << "Welcome to CLI_Snake" << endl << endl << " Please press enter" << endl;
+    cout << "       Hello!" << endl << "Welcome to CLI_Snake" << endl << endl;
+
+    cout << "Use 'w' to move the snake up" << endl
+        << "'a' for left, 'd' for right" << endl
+        << "and 'd' to move the snake down" << endl << endl;
+
+    cout << "Please press enter" << endl;
+
     cin.get();
     cout << "\x3B[1J\x1B[H";//Clear console
 
