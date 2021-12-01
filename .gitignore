@@ -1,3 +1,6 @@
+#SMFL
+include/SFML
+
 #Bye bye Xcode!
 CLI_Snake.xcodeproj/
 
